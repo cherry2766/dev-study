@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+       <title>함수 예제2</title>  
+       <script type="text/javascript">			
+	         //함수 내부에서 다른 함수 호출
+	         //1번 함수 : 사용자가 색상명을 입력하면 배경색을 변경하는 함수
+	         function ChangeColor() {
+	        	 var color = prompt("색상 입력", "red/green/blue");
+	        	 document.write(color + "로 배경색을 변경했습니다");
+	        	 
+	        	 //배경색 변경
+	        	 document.bgColor=color;
+	         }
+	       
+	         //2번 함수 : 사용자에게 배경색 변경할 것인지 확인 후 true 반환 시 배경색 변경하는 함수 호출(ChangeColor())
+	          function start() {
+	        	 var answer = confirm("배경색을 변경하시겠습니까?");
+	        	  if(answer) {
+	        		  ChangeColor(); // 함수 내부에서 다른 함수 호출
+	        		}
+	        	  else {
+	        		  alert("취소하였습니다");
+	        	  }
+	        	  document.write("<br>반갑습니다 start 함수 내용 입니다");
+	         }
+	         
+	         //start() 내부에서 ChangeColor() 호출하므로 두 함수가 실행될 수 있음
+	         start();
+	         document.write("<br>script 내용 입니다");
+       </script>
+   </head>
+
+   <body> 
+   	  
+   </body>
+</html>
+
+

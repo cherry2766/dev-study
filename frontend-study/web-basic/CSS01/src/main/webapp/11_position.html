@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Position 속성</title>
+    <style type="text/css"> 	
+    	/* 문서의 기본 margin 없애기*/
+        *{margin:0;} 
+		#parent {
+			/* position 명시하지 않으면 static(기본값) */
+			/* position:absolute; */
+			position:relative;
+			top:0px;
+			left:0px;
+			width:200px;
+			height:300px;
+			border:solid 5px #000;
+			/* margin:50px 0 0 50px; / top->right->bottom->left 시계방향*/ 
+		}
+		#boxA,#boxB,#boxC {
+			width:80px;
+			height:80px;
+		}
+		
+		#boxA {background:red;}
+		#boxB {background:green;}
+		#boxC {background:blue;}
+		
+		#boxB {
+			/* position:relative; */
+			position:absolute; /* 가장 가까운 상위요소를 기준으로 정해짐, 상위 요소의 position이 static이면 브라우저 화면이 기준임 */
+			top:20px;
+			left:30px;
+		}
+	</style>
+	
+</head>
+	
+<body>
+	<div id="parent">
+        <div id="boxA">A</div>
+        <div id="boxB">B</div>
+        <div id="boxC">C</div>
+	</div>
+</body>
+</html>
+
+
+
+

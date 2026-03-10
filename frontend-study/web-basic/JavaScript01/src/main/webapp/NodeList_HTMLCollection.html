@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>NodeList/HTMLCollection</title>
+		<script type="text/javascript">
+		window.onload = function(){
+			let header = document.querySelectorAll('h1');
+			let header2 = document.getElementsByTagName('h2');			
+	
+			/////////////////////////////////////////////////
+			//위 두 참조변수를 통해서 참조하고 있는 개체의 타입을 확인
+			console.log(typeof(header)); // typeof() 변수에 저장된 데이터의 타입을 반환
+			console.log(typeof(header2));
+			
+			/////////////////////////////////////////////////
+			//prototype 확인
+			console.log(Object.prototype.toString.call(header)); //NodeList
+			console.log(Object.prototype.toString.call(header2)); //HTMLCollection
+			
+			/////////////////////////////////////////////////
+			//자바스크립트 객체인 배열로 변환 -> Array.from(data) : data는 유사배열 객체
+			
+			const arHeader2 = Array.from(header2);
+			console.log(Object.prototype.toString.call(arHeader2));
+			
+		};
+		</script>
+	</head>
+	<body>
+		<h1>Header</h1>
+		<h1>Header</h1>
+		<h1>Header</h1>
+		
+		<div>
+		<h2>Header</h2>
+		<h2>Header</h2>
+		<h2>Header</h2>
+		</div>		
+	</body>
+</html>

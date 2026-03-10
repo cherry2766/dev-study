@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>do~while 문</title>
+		<script type="text/javascript">
+		  // 경고창 출력 후 경고창을 계속 볼 것인지의 여부를 확인하는 프로그램
+		  var answer;
+		  let count=0;
+		    
+		  do {
+			  count++;
+			  alert("경고 : " + count);
+			  answer = confirm("계속 경고창을 보시겠습니까?"); // true/false 중 하나의 값이 넘어옴
+			  
+		  } while(answer); //answer의 값은 do{}에서 결정함, 조건 검사를 뒤에 하므로 최소 한번 실행
+
+			document.write("경고창 출력 횟수 : " + count);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

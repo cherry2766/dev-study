@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>indexOf</title>
+		<script type="text/javascript">
+			var email = prompt("이메일 입력");
+			//기본 이메일 형식 : @ 있는지/ . 있는지/ .이 @ 뒤에 있는지의 여부
+			
+			/*   if(email.indexOf("@") == -1)
+				  alert("이메일 형식이 아닙니다");
+			  else if(email.indexOf(".") == -1)
+				  alert("이메일 형식이 아닙니다");
+			  else(email.indexOf("@") > email.indexOf("."))
+				  alert("이메일 형식이 아닙니다");
+			 */
+			  if ((email.indexOf("@") == -1) || (email.indexOf(".") == -1) || (email.indexOf("@") > email.indexOf("."))) 
+			    alert("이메일 형식이 아닙니다");
+			  
+			document.write("입력한 email : " + email + "<br>");
+			
+			//indexOf는 문자열의 시작 위치를 반환함, 매칭시켰을 때 매칭되는 문자열이 없으면 -1이 반환됨
+			let str = "choikimpark";
+			document.write(str.indexOf("kig")); // -1 반환
+			document.write(str.indexOf("kim")); // 4 반환
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

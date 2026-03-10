@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+		  table {
+		    border:solid 1px gray; 
+		    text-align:center;
+		    }
+		  th {background:yellow;}
+		  th, td { 
+		    border:solid 1px gray; 
+		    padding:5px;
+		    width:120px;}
+		  
+		
+		</style>
+		
+		<script type="text/javascript">	
+		    document.write("<table>")
+		    document.write("<tr> <th> i </th> <th> sum </th> </tr>")
+		    
+		    let i = 1;
+		    let sum = 0;
+		    
+		    while(i<=10) {
+		    	sum+=i;
+		    	document.write("<tr><td>" + i + "</td><td>" + sum + "</td></tr>");
+		    	i++;
+		    }
+
+		  document.write("</table>")
+		
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

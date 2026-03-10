@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS:float/clear 속성</title>
+<style>
+	#menu {list-style:none; padding:0;} /*목록 태그여서 왼쪽 들여쓰기가 적용되므로 padding을 0으로 설정*/
+	#menu li {float:left;}
+	/* #p1 {clear:right;} float 속성값 right에 대해서 해제 */
+	#p1 {clear:both;}
+	
+	#menu2 {list-style:none; padding:0;}
+	#menu2 li {float:left;}
+	#menu2::after {
+		display:block;
+		content:"";
+		clear:both;     
+		}
+		
+	#menu3 {
+		list-style:none; 
+		padding:0; 
+		height:20px;  /*float이 설정되어 있는 상위 요소에 높이를 명시적으로 설정하면 float 설정되지 않은 하위 요소들까지 float 영역이 확장되지 않음*/
+		background:#777;
+		}
+	#menu3 li {float:left;}
+</style>
+</head>
+<body>
+<div>
+	<ul id="menu">
+		<li>메뉴1</li>
+		<li>메뉴2</li>
+		<li>메뉴3</li>
+	</ul>
+	<p id="p1">메뉴 아래에 위치하는 내용</p>
+</div>
+<hr>
+<div>
+	<ul id="menu2">
+		<li>메뉴1</li>
+		<li>메뉴2</li>
+		<li>메뉴3</li>
+	</ul>
+	<p id="p2">메뉴 아래에 위치하는 내용</p>
+</div>
+<hr>
+<div>
+	<ul id="menu3">
+		<li>메뉴1</li>
+		<li>메뉴2</li>
+		<li>메뉴3</li>
+	</ul>
+	<p id="p3">메뉴 아래에 위치하는 내용</p>
+</div>
+</body>
+</html>

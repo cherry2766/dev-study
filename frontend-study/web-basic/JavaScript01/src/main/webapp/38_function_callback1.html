@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>function_callback</title>
+		<script type="text/javascript">	
+		  //익명함수 
+		  //전역변수 callback(함수 코드를 저장하고 있음)
+		  var callback = function() {
+			   alert("익명함수 입니다");
+		  };
+		  
+		  
+		  //콜백함수 : 매개변수로 전달받는 함수
+		  function show(callback) { //지역변수 :callback
+			   callback(); //매개변수를 이용해서 함수를 호출, callback 매개변수에는 함수 코드가 전달되어야 함
+		  }
+		  function show2(cb) { //cb 매개변수는 함수코드가 전달됨 
+			  cb();
+		  }
+		  show(callback);
+		  show2(callback);
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

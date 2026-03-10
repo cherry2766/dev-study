@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>charAt()</title>
+		<script type="text/javascript">
+			// 입력 
+			console.log("flower".charAt(3)); //w 반환(문자열 상수에도 문자열 객체 메소드 사용 가능)
+			let num = prompt("숫자 입력");
+			//문자열 객체는 str.length 속성이 있음
+			//('0' <= num.charAt(i) && num.charAt(i) <= '9') 이 조건에 만족하면 숫자형임(0~9)
+			/* for(let i=0; i<num.length;i++) {
+				  if(!('0' <= num.charAt(i) && num.charAt(i) <= '9')) { //조건이 숫자가 아니면
+						  alert("숫자 형식이 아닙니다");
+						  break; // 현재 가장 가까운 반복문을 종료하고 다음 실행문으로 포커스를 옮김
+				  } 
+			}
+			document.write(num); */
+			document.write("<hr>");
+			
+			for(let i=0;i<num.length;i++) {
+				if('A' < num.charAt(i)) {
+				document.write(num.charAt(i) + "의 코드값은 'A'보다 큽니다<br>"); }
+			}
+			
+			 for(let i=0;i<num.length;i++) {
+        document.write(num.charAt(i) + "의 코드값은" + num.charCodeAt(i) + "<br>");
+      }
+		
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

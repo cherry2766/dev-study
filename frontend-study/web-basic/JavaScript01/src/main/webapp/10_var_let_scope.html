@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>var와 let : scope 차이</title>
+		<script type="text/javascript">
+			function test() {
+				  var x=10; //지역변수
+				  if(x==10) {
+					  var a=100; //if문 안에서 var 명시적 선언하면 변수 유효범위는 function 내부임
+				  }
+				  console.log(a);	//if문 밖에서 사용가능
+			}
+			
+			test();
+			
+			function test2() {
+				  let x=10; //지역변수
+				  if(x==10) {
+					  let a=200; //if문 안에서 let 이용해서 명시적 선언하면 변수의 유효범위는 {} 내에서만 사용가능
+				  }
+				  console.log(a); //if문 밖에서 사용불가
+			}
+			
+			/* test2(); // 오류발생 */
+			
+			// var과 let의 차이점
+			// 선언시 유효범위가 다름
+			
+			// var 단점
+			// 보통 선언된 변수명은 다른 선언에서는 사용 불가능함
+			 var name="홍길동";
+			 console.log(name);
+			 var name="성춘향"; // 동일인 이름의 변수 중복선언
+			 console.log(name);
+			 
+			 //let - 중복선언이 불가능함
+			 let nameA="김철수";
+			 console.log(nameA);
+			 
+			 //let nameA="김미형";
+			 console.log(nameA);
+			 
+			 nameA="김미영"; //변수 재할당 가능
+			 
+			 //var로 선언한 변수를 let으로 중복선언 불가능함
+			 //let name="김철수"; //오류발생
+			 console.log(name);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

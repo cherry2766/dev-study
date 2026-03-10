@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>미디어 쿼리</title>
+		<style>
+			/* 미디어쿼리 활용 문서의 배경색 변경 - body 태그 활용 
+			   조건으로 장치의 화면 방향 - orientation:landscape(가로방향)/portrait(세로방향)*/
+			@media screen and (orientation:portrait) {
+				body {background:red;}
+			}
+			@media screen and (orientation:landscape) {
+				body {background:green;}
+			}
+						
+			* { margin:0; padding:0; }
+			
+			div {
+				margin:0 auto;
+				width:50%;
+				max-width:420px; 
+				max-height:420px; 
+			} 
+			
+			img {
+				width:100%;
+				height:auto;
+				border:solid 1px black;
+			} 
+		 
+		</style>
+	</head>
+	<body>
+			<div>
+				<img src="image/사진.jpg">
+			</div>
+	</body>
+</html>

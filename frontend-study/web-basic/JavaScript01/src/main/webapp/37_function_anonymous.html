@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">	
+		  //익명함수 : 함수명 없이 함수를 생성하고 함수 코드를 변수에 저장하는 방식
+		  var sum = function(a,b) {
+			  document.write(a+b);
+		  }; //변수에 대입연산을 진행하는 것이므로 연산의 끝 표시를 해야함
+		  
+		  //호출 시 변수명을 함수명처럼 사용
+		    sum(10,20);
+		    document.write(sum); // sum에 저장된 함수 생성 코드가 출력됨
+		    
+		    var sum2 = sum; //함수가 저장된 변수의 값 다른 변수에 대입 가능
+		    sum2(10,20); //sum이랑 같이 사용 가능함
+		
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

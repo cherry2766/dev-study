@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+      <style>
+        div {
+          padding:12px;
+          background-color:#e6e6e6;
+        } 
+        .text {
+        display:none;
+        padding-left:10px;}
+      </style>
+		<script src="jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">	
+		    $(function(){
+		    	$('div').on('click', function(){
+		    		  $(this).next('.text').slideToggle(500);
+		    	});
+		    });
+
+		</script>
+	</head>
+	<body>
+	     <div>Section 1</div>
+	       <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+              laboris nisi ut aliquip ex ea commodo consequat.</p>
+	     <div>Section 2</div>
+	       <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+              laboris nisi ut aliquip ex ea commodo consequat.</p>
+	     <div>Section 3</div>
+	       <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+              laboris nisi ut aliquip ex ea commodo consequat.</p>
+	   
+	</body>
+</html>

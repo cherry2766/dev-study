@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>40_function_callback_param</title>
+		<script type="text/javascript">	
+		  let globalVar = 100;
+		  
+		  //콜백으로 사용할 함수 - 매개변수(지역변수)가 있는 함수, 전역변수도 사용
+		  function show(localVar) {
+			  console.log(`전역변수:${globalVar} / 지역변수:${localVar}`);
+		  }
+		  
+		  //파라미터로 콜백함수를 전달받아 함수 호출하는 기능의 함수
+		  //함수 호출시 인수로 함수코드가 전달되어야 하고 해당 함수는 매개변수가 1개 있어야 함
+		  function call(callback) {
+			  let localVar = 1;
+			  callback(localVar); //현재 프로그램에서는 show 함수가 호출됨
+		  }
+		  
+		  call(show);
+		  
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

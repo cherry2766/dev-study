@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title>for in 예제</title>
+        <script type="text/javascript">    		    
+			 var fruits = ["사과", "포도", "복숭아"];	//배열 선언 및 초기화		
+			  for (var i in fruits) {
+				    document.write("fruits["+i+"]=" + fruits[i] + "<br>");
+			  }
+			 // 객체 - 데이터 저장 공간(속성) + 기능(메소드)
+			 // 배열 순환해서 필요값을 반환하는 메소드 배열.forEach(콜백함수);forEach
+			 // 콜백함수의 호출은 함수가 전달되는 메소드에 의해서 자동 호출됨
+			 // forEach는 index 접근 없이 배열 요소를 반환받을 수 있음
+			 var arr = ["사과", "배", "복숭아", "포도"];
+			 arr.forEach(function(item) {
+				 console.log(item);
+			 });
+
+			 arr.forEach(function(resc, idx, frt) {
+			   console.log(resc, idx, frt);
+			 });
+        </script>        
+    </head>   
+    <body>   	  
+    </body>
+</html>
+	

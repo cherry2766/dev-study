@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>마우스 이벤트</title>
+		<script src="jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+					// btn 버튼 클릭했을 때
+          $('#btn').on('click',function(){
+        	   alert("클릭했습니다");
+          });
+					
+					// 2개의 이벤트 처리 : 방법1 -> 메서드 체이닝
+          $('#btn')
+					.on('mouseover',function(){
+        	   $(this).css('backgroundColor','yellow');
+          })
+          .on('mouseout',function(){
+        	   $(this).css('backgroundColor','lime');
+          })
+
+					// 2개의 이벤트 처리 : 방법2 -> on 메서드 한번만 사용 - {}
+					/* $('#btn').on({
+						  mouseover:function(){
+							  $(this).css('backgroundColor','yellow');
+						  },
+						  mouseout:function(){
+							  $(this).css('backgroundColor','lime');
+						  }
+					}); */
+			});
+		</script>
+	</head>
+	<body>
+		<input type="button" id="btn" value="클릭하세요">
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

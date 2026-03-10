@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title>setInterval() 예제</title>
+		<script type="text/javascript">
+			function showTime(){				
+				let now = new Date();
+				
+				let hour = now.getHours(); //24시간제로 반환됨
+				let minute = now.getMinutes();
+				let second = now.getSeconds();
+				let amPm = "오전";
+				
+				if(hour == 24) {
+					hour -= 24;
+				} else if(hour >= 12) {
+					amPm = "오후";
+						if(hour>12) {
+							hour -= 12;
+					}
+				}
+				
+				var time = amPm + " " + hour + "시 " + minute + "분 " + second + "초 ";		
+				timeShow.innerHTML = time;
+				
+			}			
+			
+			// showTime();
+		</script>
+	</head>		
+	<body>
+	<!-- setInterval()은 콜백함수를 특정 간격으로 계속 호출하므로 호출을 멈추기 위해 
+	     clearInterval() 사용 - 특정 Interval 설정을 해제하기 위해 id가 필요함
+	     setInterval() 호출되면 객체 id값을 반환 -->
+       <button onClick="timerId=setInterval('showTime()',1000)" >시간 출력</button>
+       <button onClick="clearInterval(timerId)" >시간 정지</button> 
+       <h1 id="timeShow">시간 출력</h1>  	  	   	
+	</body>
+</html>
+
+

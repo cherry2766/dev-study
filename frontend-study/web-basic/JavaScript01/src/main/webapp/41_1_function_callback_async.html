@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>41_1_function_callback_async</title>
+		<script type="text/javascript">	
+		  var callback = function() {
+		        console.log('콜백함수 호출됨');
+		      };
+		      
+		      function show(cb) {
+		        cb(); //매개변수로 전달되는 함수 코드 호출
+		      }
+		      ///////////////////함수 구성 블럭 끝 ////////////////
+		      // 실행코드 //
+		      console.log('콜백 함수 호출 전');
+		      
+		      setTimeout(callback, 3000); 
+		      //함수 코드 전달(setTimeout 함수 호출) - setTimeout 함수는 첫번째로 전달된 파라미터 코드를 두번째로 전달된 시간이 지난 후에 실행함
+		      //callback 익명함수코드는 3초 후에 실행
+		      //3초가 되기 전에 실행해야 할 다음코드가 있으면 먼저 실행함
+		      
+		      console.log('콜백 함수 호출 후');
+		
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex</title>
+  <style>
+    .container {
+      width:500px;
+      height:150px;
+      background:yellow;
+      display:flex;
+      /* flex-wrap:wrap-reverse; */ /*flex item들의 크기가 flex container를 넘어가면 처리방법에 대한 속성 (nowrap(기본값)/wrap(아래로 밀려 내려감)/ 
+                                wrap-reverse(위로 밀려 올라감)) */
+    }
+  
+    .item {
+      /*flex-basis:auto; flex item의 기본 크기를 설정,auto 기본값-item의 width값을 사용 item의 width 생략시 컨텐츠(text)크기로 설정*/
+      /* flex-basis:100px;*width가 100px이 안되는건 100px로 확장, 100px이 넘는건 그대로 유지*/
+      /* width:100px; 100px이 넘는 것도 100px로 맞춰짐*/
+      /* word-wrap:break-word; width를 넘어가는 컨텐츠를 표현함*/     
+      height:50px;
+      background:green;
+      border:solid 1px black;
+    }
+    
+    .item {
+      /*flex-grow : 0보다 큰값으로 세팅이 되면 해당 아이템이 유연한 박스로 변하고 원래크기보다 커지며 빈 공간을 매우게 됨*/
+      /*flex-grow:1;  /*각 item들이 여백을 균등하게 나눠서 갖고 감 ex. item이 3개면 1:1:1 */
+    }
+    /*여백을 4로 나눠서 1:2:1*/
+    .item:nth-child(1) {flex-grow:1;}
+    .item:nth-child(2) {flex-grow:2;}
+    .item:nth-child(3) {flex-grow:1;}  
+    
+  
+  
+  </style>
+</head>
+<body>
+      <div class="container">
+        <div class="item">helloflexhelloflexhelloflex</div>
+        <div class="item">abc</div>
+        <div class="item">helloflex</div>
+      </div>
+</body>
+</html>

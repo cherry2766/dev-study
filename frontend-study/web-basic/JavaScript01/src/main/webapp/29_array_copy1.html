@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">	
+		    //배열 복사 : 얕은 복사(참조 주소 공유)
+		    //동일배열 참조 : 한쪽 이름으로 배열을 변경하면 다른 이름으로 참조했을때 변경된 결과로 보임
+		    
+		    let arr = [1,2,3]; //참조 변수인 arr과 배열 객체가 따로 저장됨, arr이 배열객체의 시작주소를 저장
+		    let arrCopy = arr; //arr의 참조주소가 arrCopy에 저장됨, 시작주소를 복사
+		    console.log("원본 : ", arr);
+		    console.log("복사본 : ", arrCopy);
+		    
+		    console.log(arr == arrCopy); //동일 배열인지 확인, 동일한 참조주소값이 저장되어 있음
+		    
+		    console.log("변경후");
+		    arr[0] = 100; //원본의 원소값 변경
+		    console.log("원본 : ", arr);
+	      console.log("복사본 : ", arrCopy);
+		
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

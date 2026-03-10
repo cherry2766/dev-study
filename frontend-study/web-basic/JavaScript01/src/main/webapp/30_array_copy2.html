@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">	
+		    //깊은복사 : 배열의 구조, 원소값을 복사해야 함 - 구조 복사는 메모리 할당을 진행해야 함
+		    //js가 JSON 객체의 구문 분석을 위해 추가한 메서드 JSON.parse(), JSON.stringify()
+		    //JSON.stringify(배열) : 배열을 JSON으로 변환
+		    //JSON.parse() : JSON 구문 분석 - 객체 생성
+		    
+		    //배열 깊은 복사
+		    let arr = [1,2,3];
+		    let arrCopy = JSON.parse(JSON.stringify(arr));
+		    
+		    console.log("원본 : ", arr);
+		    console.log("복사본 : ", arrCopy);
+		    console.log(arr == arrCopy); //false 반환, 두 변수의 참조값이 다르다, arrCopy가 참조하는 객체가 생성되었음(동일 원소값도 복사됨)
+		    
+		    console.log("변경후 : ");
+		    
+		    arr[0]=100;
+		    arrCopy[1]= 50;
+		    
+		    console.log("원본 : ", arr);
+	      console.log("복사본 : ", arrCopy);
+		    
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

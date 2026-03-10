@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+/* 태그 우선 순위 
+ID > CLASS > TAG
+같으면 아래 줄이 이김 */
+/* id header의 자식 h2 태그, 현재 문서는 없으므로 반영되지 않음 */
+	#header > h2 {
+		color: red;
+		}
+/* 	#header h2 {
+		color: red;
+		}
+	#header h1 {
+		color: blue;
+		} 
+	#section h2 {
+		color: green;
+		}
+*/
+	h2 {/* 문서 내 모든 h2 */
+		font-weight: bold;
+		}
+/* id 속성값이 header인 태그의 모든 자손 h1,h2 에 대해 폰트색 적용 */
+	#header h1, #header h2 {color: blue;}
+	#header h1,h2 { /*id 속성값이 header인 태그의 모든 자손 h1과 문서내 모든 h2 태그
+					선택자에서 ,는 선택의 나열이고 새로운 선택 시작*/
+		color: red;
+		}
+</style>
+</head>
+<body>
+<div id="header">
+<h1 class="title">header - h1 제목</h1>
+<div id="nav">
+	<h1>header-nav-h1제목</h1>
+	<h2>header-nav-h2제목</h2>
+</div>
+</div>
+
+<div id="section">
+	<h2 class="title">section-h2 제목</h2>
+</div>
+</body>
+</html>

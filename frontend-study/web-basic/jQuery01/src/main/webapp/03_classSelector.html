@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src= "jquery-3.7.1.min.js"></script>
+		<title>jQuery 클래스 선택자</title>
+		<script type="text/javascript">
+		    $(function() {
+		    	  //클래스 선택
+		    	  //여러 속성 한번에 적용 : css({속성1:'속성값',속성2:'속성값'...속성n:'속성값'})
+		    	  $(".group1").css({
+		    		   float:'left',
+		    		   background:'blue',
+		    		   color:'white',
+		    		   width:'90%',
+		    		   height:'30px'
+		    	  });
+		    	  $('.group2').css({
+		    		   float:'right',
+		    		   background:'yellow',
+		    		   color:'black',
+		    		   width:'90%'
+		    	  });
+		    	  
+		    });
+
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			<div class="group1">A</div>
+			<div class="group2">A</div>
+			<div class="group1">B</div>
+			<div class="group2">B</div>
+			<div class="group1">C</div>
+			<div class="group2">C</div>
+		</div>
+	</body>
+</html>

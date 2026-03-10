@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>윈도우 이벤트 - 윈도우 크기 변경</title>
+		<script src="jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				//윈도우 크기가 변경될때마다 배경색을 변경, 윈도우 크기 출력
+				//윈도우 크기 : 이벤트 메서드 사용
+				$(window).resize(()=> {			
+				
+					let winWidth = $(window).width();
+					let winHeight = $(window).height();
+					
+					$('h3').text("윈도우 크기 : " + winWidth + " x " + winHeight);
+					
+					let bgColor;
+					if(winWidth>=900)
+						bgColor="green";
+					else if(winWidth>=700)
+						bgColor="yellow";
+					else
+						bgColor="red";
+					$('body').css('backgroundColor', bgColor);
+		
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h3> 윈도우 크기 : 윈도우 크기를 변경해보세요.</h3>
+	</body>
+</html>

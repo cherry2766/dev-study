@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table 태그</title>
+	<style>
+		td { width:100px; }
+	</style>
+</head>
+<body>
+	<table border="1">
+         <caption>테이블1</caption> <!-- <caption> 테이블의 제목 표시 -->
+         <thead align="center"> 				
+	      <tr> 
+	       <th>a</th> 
+	       <th>b</th> 
+	       <th>c</th> 
+	       <th>d</th> 
+	      </tr>
+	      <tr> 
+	       <td rowspan="3">a1</td> 
+	       <td>b1</td> 
+	       <td>c1</td> 
+	       <td>d1</td>
+	      </tr>
+		  <tr>                         
+		   <td>b2</td> 
+		   <td>c2</td> 
+		   <td>d2</td> 
+		  </tr>
+		  <tr>                         
+		   <td>b3</td> 
+		   <td>c3</td> 
+		   <td>d3</td> 
+		  </tr>
+		  <tr> 
+		   <td colspan="4">a4</td>                                     
+		  </tr>      
+		 </thead>    
+	</table>
+      <br><br>
+    	<table border="1">
+         <caption>테이블2</caption>
+         <thead align="center"> 
+	       <tr> 
+	        <th>a</th> 
+	        <th>b</th> 
+	        <th>c</th> 
+	        <th>d</th> 
+	       </tr>
+	       <tr> 
+	        <td rowspan="4">a1</td> 
+	        <td colspan="3">b1</td>             
+	       </tr>
+		   <tr>  						
+		    <td>b2</td> 
+		    <td>c2</td> 
+		    <td>d2</td> 
+		   </tr>
+		   <tr>  						
+		    <td rowspan="2">b3</td> 
+		    <td>c3</td> 
+		    <td rowspan="2">d3</td> 
+		   </tr>
+		   <tr>  												
+		    <td>c4</td>                         
+		   </tr>      
+		 </thead>    
+	</table>      
+</body>
+</html>
+				<!-- [table 태그 속성]
+					 align 테이블 정렬방식(left,right,center)
+         			 border 테이블 테두리, 생략하면 테두리 없음
+         			 bordercolor 테두리 색상
+         			 width 테이블의 너비(가로길이)
+         			 height 테이블의 높이(세로길이)
+         			 bgcolor 테이블의 배경색
+         			 background 테이블에 배경 이미지 넣기
+         			 cellspacing 셀과 셀 사이의 여백
+         			 cellpadding 텍스트와 셀 사이의 여백  -->

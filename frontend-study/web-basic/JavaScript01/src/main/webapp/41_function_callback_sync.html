@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>41_function_callback_sync</title>
+		<script type="text/javascript">	
+		  var callback = function() {
+			  console.log('콜백함수 호출됨');
+		  };
+		  
+		  function show(cb) {
+			  cb(); //매개변수로 전달되는 함수 코드 호출
+		  }
+		  ///////////////////함수 구성 블럭 끝 ////////////////
+		  // 실행코드 //
+		  console.log('콜백 함수 호출 전');
+		  
+		  show(callback); //함수 코드 전달(show 함수 호출) - show 함수가 종료 되어지면 다음 코드를 실행함
+		  
+		  console.log('콜백 함수 호출 후');
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

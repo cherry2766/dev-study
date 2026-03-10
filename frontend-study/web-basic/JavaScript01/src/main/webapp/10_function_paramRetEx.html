@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">	
+		
+	
+			function input() {
+				let arr = [];
+				for(let i=0;i<5;i++) {
+					let num = parseInt(prompt("숫자" + (i+1) +  "입력 : "));
+					arr[i] = num;	
+				}
+				let maxNum = max(arr);
+				document.write("최대값 : " + maxNum);
+			}
+			
+			var max = (arr) => {
+				let maxValue = arr[0];
+				arr.forEach((num) => {
+					if(num > maxValue) {
+						maxValue = num;
+					}
+				})
+				return maxValue;
+			};
+		
+		</script>
+	</head>
+	<body>
+	
+	   <button onClick="input()">숫자 입력</button>
+	   
+	</body>
+</html>

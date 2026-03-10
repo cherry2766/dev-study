@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+h1 {
+	display:inline-block; /* inline-block은 인라인처럼 한 줄에 배치하면서,block처럼 width / height / padding / margin을 쓰기 위해 사용하는 것 */
+	padding:10px;
+	}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">	
+		  //일반 함수 콜백으로 함수에 전달
+		  //일반 함수
+		    function endFunction() {
+			   console.log("종료");
+			  }
+		  
+		  //일반 함수2 : name에는 문자열을, func는 콜백 함수를 전달해야함 
+			  function showName(name,func) {
+				   console.log("name : ", name);
+				   func();
+			  }
+			//함수 호출시 인수 : 첫번째 인수 문자열 , 두번째 인수 함수코드(콜백) : 일반함수인 경우 함수명만 전달하면 함수 생성 코드가 전달됨
+			  showName('홍길동',endFunction);
+			  
+			  console.log(endFunction);
+		  
+		  
+		
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

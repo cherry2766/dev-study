@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">	
+		
+			const imgArr = ['apple.png', 'bomb.png'];
+			  let idx = 0;
+			  let count = 0;
+			  let imgTimer;
+		
+		  function start() {
+			  alert("이미지 10개 출력");
+			  imgTimer = setInterval(showImg,1000);
+		  }
+		  
+		  function showImg() { 
+			  document.write(`<img src="image/${imgArr[idx]}">`);
+			  
+			  idx++;
+			  count++;
+				  
+			    if(idx == imgArr.length) {
+			    	idx = 0;
+			    }
+			    if(count == 10) {
+			    	clearInterval(imgTimer);
+			    }
+		  }
+
+		  start();
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM : 속성 추가</title>
+		<script src="jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				  $('#img')
+				    .on('mouseover',function(){
+				    	$(this).attr('src','image/apple.png');
+				    })
+				    .on('mouseout',function(){
+				    	$(this).attr('src','image/heart.png');
+				    });
+			});
+		</script>
+	</head>
+	<body>
+	  <h1>Dom요소 속성 추가</h1>
+		<img src="image/heart.png" id="img">
+	</body>
+</html>

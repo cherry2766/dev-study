@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>플렉서블 박스-플렉서블 아이템 정렬 추가</title>
+<style>
+  * {margin:0; padding:0;}
+  /* div 태그 display 기본값이 block */
+  .container {
+    width:500px;
+    height:300px;
+    border:solid 1px black;
+    margin:5px;
+  }
+  
+  .container div {
+    width:20%; 
+    height:10%;
+  }
+  
+  .container div:nth-child(1) {background:red;}
+  .container div:nth-child(2) {background:blue;}
+  .container div:nth-child(3) {background:yellow;}
+  
+  .container {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    /*교차축에 대한 배치 결정(flex-start(교차축의 시작점)/flex-end(교차축의 끝점)/(center(교차축의 가운데))*/
+    align-items:center;
+  }
+	
+</style>
+</head>
+<body>
+			<div class="container">
+				<div></div><div></div><div></div>
+			</div>
+			
+			<div class="container">
+				<div></div><div></div><div></div>
+			</div>			
+</body>
+</html>

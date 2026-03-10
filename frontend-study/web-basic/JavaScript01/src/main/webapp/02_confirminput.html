@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>confirm 함수</title>
+		<script type="text/javascript">	
+		   // confirm 함수 사용 예제
+		   // 사용자에게 학생인지 질문해서 학생여부에 따라 할인율을 출력하는 프로그램
+		   var isStudent = confirm("당신은 학생입니까?");
+		   console.log(isStudent);
+		   
+		   if(isStudent == true) {
+			   document.write("학생<br>");
+			   document.write("할인율 : 50%");
+		   }
+		   
+		   else {
+			   document.write("학생아님<br>");
+		     document.write("할인율 : 10%");
+		   }
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

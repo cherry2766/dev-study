@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>마우스 이벤트</title>
+		<script type="text/javascript">
+			window.onload = function(){
+				let birdImg = document.getElementById("birdImg");
+				
+				//해당 객체에 마우스를 올렸을 때 투명도를 0.5로 처리
+				birdImg.onmouseover = function() {
+					birdImg.style.opacity = 0.5;
+				}
+				//해당 객체에 마우스가 벗어났을 때 투명도를 1로 처리
+			  birdImg.onmouseout = function() {
+		      birdImg.style.opacity = 1;
+		    }
+				
+			//해당 객체에 마우스 오른쪽 버튼을 클릭했을 때 처리
+        birdImg.oncontextmenu = function() {
+          alert("오른쪽 마우스 버튼 사용을 금지합니다");
+          return false; //기본 기능(오른쪽 마우스 클릭에 대한) 실행을 방지
+        }
+			};
+			
+			// 문서 상에서 오른쪽 마우스 클릭했을 때 이벤트 처리 : contextmenu
+
+		</script>
+	</head>
+	<body>
+		<img id="birdImg" src="image/bird.jpg">
+	</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <title>window.open()2</title>
+		<script type="text/javascript">		
+			//이미 만들어진 문서를 새로운 창으로 열기
+      function showBigImage() {
+        //window.open() : 새로운 창을 생성해서 출력
+        window.open('bigImage.html', 'bigWin', 'width=200, height=200, status=yes, scrollbars=yes, resizable=yes');
+      }
+			
+			//새로운 창 만들어서 열기
+			//문자열과 버튼 출력 / 버튼 클릭 시 창 닫기
+			function openNewWindow() {
+				//window.open() 메서드는 창을 생성하면 창과 연결할 수 있는 값(핸들러)을 반환함, 개발자가 필요하면 변수에 받아서 사용함
+				let createWin = window.open("", "createWin", "width=480, height=150");
+				//핸들러 이용하면 특정창을 제어할 수 있음(document.write() 활용 가능) - 동적태그 생성
+				createWin.document.write("createWin 이름으로 새로 만든 창 입니다.");
+				createWin.document.write("<p><button onClick='window.close()'>닫기</button></p>");
+			}
+
+		</script>
+	</head>		
+	<body>    	
+    	<button onClick="showBigImage()">Big Image 열기</button> 
+        <button onClick="openNewWindow()" >새창 열기</button>
+	</body>
+</html>
+

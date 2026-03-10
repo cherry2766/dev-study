@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>함수 예제3</title>
+		<script type="text/javascript">
+			// 버튼 클릭할 때 함수 호출
+			// 색상 입력 받아서 문서 배경색을 변경하는 함수
+			function input(){
+				var color = prompt("색상 입력 : red/blue/green");
+				document.bgColor = color;
+			}
+	
+		</script>
+	</head>
+	<body>
+	   <!-- 색상 입력 버튼을 클릭하면 input() 호출 -->
+	   <!-- 태그 이벤트 속성 : 태그 영역 내에서 이벤트(키보드 입력, 마우스 동작(클릭,move))가 발생하면 속성값 코드가 실행됨 
+	        onClick : 태그영역내에서 마우스 클릭 -->
+	   <button onClick="input()">색상 입력</button>
+		
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>overflow</title>
+	<style type="text/css">	
+	div {
+		width:200px;
+		height:175px;
+		border:solid 1px black;
+		overflow:hidden; /*기준 태그 영역 벗어나는 하위태그는 숨기기*/
+		overflow:scroll; /*기준 태그 영역 벗어나는 하위태그 영역 방향의 scroll이 활성화 됨, 가로 세로 모든 스크롤이 보임*/
+		overflow:auto; /*기준 태그 영역 벗어나는 하위태그 영역 방향의 scroll만 활성화 됨*/
+		/*overflow 생략시 상위 영역 넘어가서 밖에 표현이 됨*/
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<img src="image/fashion1.png">
+	    <img src="image/fashion2.png">
+	    <img src="image/fashion3.png">
+	</div>
+</body>
+</html>
+

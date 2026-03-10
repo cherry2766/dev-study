@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>17_infinityScroll.html</title>
+		<script src="jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">	
+		    $(function() {
+		    	//문서에 객체 추가하는 함수
+		    	let appendDocument = function() {
+		    		for(let i=0; i<20; i++) {
+		    			$("<h1> Infinity Scroll </h1>").appendTo("body");
+		    		}
+		    	};
+		    	
+		    	//초기에 문서객체 추가
+		    	appendDocument();
+		    	
+		    	//window에 scroll() 이벤트 추가
+		    	$(window).scroll(function(){
+		    		let scrollHeight = $(window).scrollTop() + $(window).height();
+		    		let documentHeight = $(document).height();
+		    		
+		    		//스크롤이 문서 끝에 도달했는지 검사, 문서 끝에 도달했으면 문서를 추가, 무한스크롤
+		    		if(scrollHeight == documentHeight) {
+		    			appendDocument();
+		    		}
+		    	});
+		    	
+  	
+		    	
+		    });
+		    
+		    
+		
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

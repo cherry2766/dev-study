@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">	
+		
+		function input1() {
+		      let num1 = prompt("입력1");
+		      let num2 = prompt("입력2");
+		      cal(num1, num2);
+		    }
+
+		    function cal(num1, num2) {
+		      if(isAllNumber(num1) != isAllNumber(num2)) {
+		        alert("잘못된 입력입니다");
+		        return;
+		      }
+		      if(isAllNumber(num1) && isAllNumber(num2)) {
+		        let sum = Number(num1) + Number(num2);
+		        document.write(sum);
+		      } else {
+		        let charNum = num1.concat(num2);
+		        document.write(charNum);
+		      }
+		    }
+
+		    function isAllNumber(str) {
+		      if (str.length === 0) {
+		      return false;
+		    }
+		      if (str === "-") return false;
+		      for(let i=0;i<str.length;i++) {
+		        if (i === 0 && str.charAt(i) === '-') {
+		        continue;
+		        }
+
+		        if (isNaN(str.charAt(i))) {
+		          return false;
+		        }
+		      } 
+		    return true;
+		    }
+
+		    function input2() {
+		      let str = prompt("문장을 입력하세요");
+		      apple(str);
+		    }
+
+		    function apple(str) {
+		      let idx = str.indexOf("apple");
+		      if (idx != -1) {
+		        document.write(`apple이 idx[${idx}]에 있습니다`);
+		      }
+		    }
+
+			
+		</script>
+	</head>
+	<body>
+	
+	<button onClick="input1()">숫자/문자 입력</button>
+  <button onClick="input2()">문장 입력</button>
+
+	</body>
+</html>

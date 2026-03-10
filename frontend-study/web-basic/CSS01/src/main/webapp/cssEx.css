@@ -1,0 +1,80 @@
+/* cssEx.html에 link로 포함됨 */
+@charset "UTF-8";
+
+/* 문서 전체(body태그 내부 div) 영역에 대한 설정 */
+#wrap {
+	width:800px;
+	text-align:center;
+	margin:0 auto; /*가로 가운데 정렬 */
+	}
+#mainMenuBox {
+	height:35px;
+	line-height:35px; /*줄간격 - 수직으로 가운데 정렬*/
+	background-color:#333;
+	margin-top:30px;
+	margin-bottom:30px;
+	}
+#mainMenuBox ul {
+	padding-left:0; /*목록 들여쓰기 삭제*/
+	margin:0;
+	list-style:none; /*목록 기호 제거*/
+	display:flex;
+	}
+#mainMenuBox li {
+	/* float:left; */ /*왼쪽에서 오른쪽 방향으로 정렬*/
+	flex-grow:1;
+	text-align:center;
+	width:25%; /*항복 4개를 동일한 너비로*/	
+	}
+#mainMenuBox a {
+	 text-decoration:none; /*a태그의 밑줄을 없애는 작업*/
+	 color:white;
+	 display:block; /*a태그 영역 확장하기 위해*/
+	}
+#mainMenuBox a:hover {
+	color:red;
+	text-decoration:underline;
+	background-color:black;
+	}
+#productBox {
+	margin-bottom:20px;
+	display:flex;
+	}
+#productBox div {
+	/* display:inline-block; */
+	flex-grow:1;
+	margin:20px;
+	}
+.prdTitle {
+	color:blue;
+	}
+.prdPrice {
+	color:red;
+	}
+	
+#infoBox {
+	display:flex;
+	justify-content:space-around;	
+}
+.box {
+	border: 1px solid #999;
+	display:inline-block;
+	width:320px;
+	height:150px;
+	border-radius:10px; /*모서리 둥글게*/
+	margin:10px;
+	padding-left:20px;
+	padding-right:20px;
+	text-align:left;
+	}
+
+img, h3, hr, h4 {margin-bottom:10px;}
+
+.box a:visited {color:green;}
+.box a:hover {
+	color:red;
+	text-decoration:none;
+	}
+.box a:active {color:gray;}
+
+/*link -> visited -> hover -> active 순서로 작성*/

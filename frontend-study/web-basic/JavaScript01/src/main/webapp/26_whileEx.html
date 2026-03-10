@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+        <title>while 문 연습문제</title>
+        <script type="text/javascript">    
+        
+           /* while(i>5) {
+            console.log("test");
+           } */
+           //위 while문의 반복 횟수는? 처음부터 조건이 거짓이므로 반복횟수 : 0번
+		       /* while(true) {
+		        console.log("test");
+		        break;
+		       } */
+		       //위 while문의 반복 횟수는? 무조건 참 - 무한반복
+		    		 
+		   ////////////////////////////////////////////////////////
+		   // 사용자에게 숫자를 입력받아 입력된 숫자만큼의 이미지 출력
+		   // 이미지 3개를 번갈아가면서 출력
+			    		 
+				   var num= parseInt(prompt("숫자 입력")); 	
+				   let i = 1; //조건 검사를 하기 위한 초기화 값
+				
+					 document.write("<h2>총 " + num + "개의 이미지 출력</h2>");	
+						
+					 while(i<=num) {
+						 if(i % 3 == 1)
+							 document.write("<img src='image/cherry.png'>");
+						 else if(i % 3 == 2)
+							 document.write("<img src='image/bomb.png'>");
+						 else
+							 document.write("<img src='image/apple.png'>");
+						 i++; // 조건을 거짓으로 만들기 위한 증가
+					 }
+					 document.write("<br>" + i);
+        </script>        
+    </head>   
+    <body>   	  
+    </body>
+</html>

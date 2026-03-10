@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+         <title>window.open()-bigImage</title>
+		<script type="text/javascript">
+		  //이미지에 마우스가 올라가면 더 큰 이미지를 표현하는 창을 생성하는 함수
+		  function showBigImage() {
+			  //window.open() : 새로운 창을 생성해서 출력
+			  window.open('bigImage.html', 'bigWin', 'width=699, height=800, top=50');
+		  }
+		</script>
+	</head>		
+	<body> 
+		<center>
+		   그림에 마우스를 가져가면 <br>
+            그림을 크게 볼 수 있습니다<br><br>
+            <img src="image/고흐.jpg" width="118" height="146" onMouseOver="showBigImage()"> <!-- 이벤트 속성 값으로 전달되는 함수(이벤트 처리(핸들러) 함수) -->
+         </center>   
+	</body>
+</html>
+
+

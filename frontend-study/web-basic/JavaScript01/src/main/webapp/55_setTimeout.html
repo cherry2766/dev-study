@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+         <title>setTimeout() 예제</title>
+		<script type="text/javascript">
+		    //새창을 여는 함수 - 함수로 구성하지 않으면 주 창이 열리기전 새 창이 열리는걸 방지하기 위해 함수로 구성
+		    function openInfo() {
+		    	win = window.open("msgWindow.html", "setTimeOut", "width=300, height=300");
+		    }
+		    
+		    //
+		    function showMsg() {
+		    	document.write("로드하자마자 열린 공지사항 창이 <br> 3초 후에 자동으로 닫혔습니다");
+		    }
+		</script>
+	</head>		
+	<!-- 자식창은 부모창이 onLoad(준비) 되면 바로 함수 호출에 의해 창이 열림(부모창은 포커스를 갖고 있지 않음)
+	     부모창은 자식창이 닫혀야 포커스를 갖게 됨 -->
+	<body onLoad="openInfo()" onFocus="showMsg()">    	
+		부모창입니다.    	   	
+	</body>
+</html>
+

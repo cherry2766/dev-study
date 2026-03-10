@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+		div.question-box {margin: 10px 0 20px 0;}
+		
+		</style>
+		<script src="jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">	
+		
+		  $(function() {
+			  $('button').on('click', function(){
+				   let value = $('#input').val(); //값이 저장되는 변수 js 변수를 많이 사용
+					   if(value =='') {
+						   alert("입력하세요!");   
+			         $('#input').focus(); 
+					   }
+					   else 
+						   alert(value);
+			  });  
+		  });
+		
+		</script>
+	</head>
+	<body>
+	<h1>jQuery selector/event 연습</h1>
+	<hr />
+		<div class="question-box">
+				<h2>빈칸 체크 함수 만들기</h2>
+				<h5>버튼을 눌렀을 때 입력한 글자로 alert 띄우기</h5>
+				<h5>버튼을 눌렀을 때 칸에 아무것도 없으면 "입력하세요!" alert 띄우기</h5>
+				<input id="input" type="text" /> <button>클릭</button>
+		</div>
+	</body>
+</html>

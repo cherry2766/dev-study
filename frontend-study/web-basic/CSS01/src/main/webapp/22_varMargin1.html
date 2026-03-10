@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>가변 그리드</title>
+		<style type="text/css">
+			#wrap {
+				margin:0 auto;
+				width:90%;
+				height:300px;
+				border:solid 4px #000;
+			}
+			#wrap div {
+				display:inline-block;
+				height:100%; /*상위 영역이 300px이므로 300px로 설정됨*/
+			}
+			#wrap div:nth-child(1) {
+				width:33.3%; /*wrap 영역의 3분의1 크기로 설정됨*/
+				background:green;
+			}
+			#wrap div:nth-child(2) {
+				width:66.7%; /*wrap 영역의 3분의2 크기로 설정됨*/
+				background:yellow;
+			}
+		
+		</style>
+	</head>
+	<body>
+		<div id="wrap">		
+			<div></div><div></div>	
+		</div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>42_function_arrow1</title>
+		<script type="text/javascript">	
+		  //화살표 함수 : 익명함수를 만들거나 콜백을 직접 함수코드로 전달할 때 많이 사용
+		  //function 예약어를 사용하지 않고 함수 구성을 최대한 간결하게 하는데 목적이 있음
+		  // => 기호를 사용
+		  
+		  /*  let sum = function(a,b) {
+			  return a+b;
+		  }; */
+		  
+		  let sum = (a,b) => a+b;
+		  
+		  alert(sum(1,2));
+		  //화살표 함수 형식의 매개변수 지정 방법
+		  // () => {...}
+		  // x => {...}
+		  // (x,y) => {...}
+		  
+		  //함수 블럭 지정 방법
+		  //x = {return x*x} : return문을 {}안에 명시 단, 함수 블럭코드가 1줄이면
+		  //x = x*x : return과 {}없이 사용 가능 단, 2줄 이상이면 블럭 {} 반드시 사용
+		  
+		  let sayHi = () => alert("안녕하세요!");
+		  sayHi();
+		  
+		  //콜백함수로 함수 코드 전달할 때 많이 사용됨
+		  let number = [1,2,3,4,5];
+		  //배열 객체의 forEach 메서드는 파라미터로 콜백함수를 요구함
+		  number.forEach(x => {
+			  console.log(x*2);
+		  });
+		  
+		  function test(x) {
+			  console.log(x*2);
+		  }
+		  
+		  number.forEach(test);
+		  
+		  test(prompt("숫자입력")); //함수를 실행한 결과를 파라미터로 전달 -> 값전달
+		
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

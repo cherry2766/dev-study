@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">	
+		  $(function(){
+			  let imgTimer = setInterval(imgRun,100);
+			  let startRun = 0;
+			  let finishRun = 14;
+
+			  function imgRun() {
+				  $('img').attr('src',`image/${startRun}.png`);
+				  startRun++;
+				  
+				  if(startRun > finishRun)  //안멈추고 계속 달리기로 만들었어요!
+					  startRun = 0;
+				  
+				  /* if(startRun > finishRun) //이건 clearInterval로 멈추게 만들었어요!
+					     clearInterval(imgTimer);
+				   */
+			  }
+		  });
+
+		</script>
+	</head>
+	<body>
+	     <img>
+	</body>
+</html>

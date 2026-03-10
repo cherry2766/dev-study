@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>입력 양식 태그</title>
+</head>
+<body>
+<!-- from 태그의 action 수행 조건은 submit 이벤트가 발생하면 action이 수행됨
+	 submit 이벤트는 js를 통해서 수동으로 발생시킬 수 있음
+	 submit 버튼을 통해 이벤트 발생을 대기할 수 있음(버튼 클릭시 이벤트 발생)
+ -->
+ 	<form method="post" action="newMember.jsp">
+ 		label 태그 사용하지 않음<P>
+ 		성명 : <input type="text" id="name" size="10" autofocus><br>
+ 		<input type="text" id="prdNo" hidden><br>
+ 		<input type="text" name="id" size="10" placeholder="아이디"><br>	     
+ 		<hr>
+ 		label 태그 사용<P>
+ 		<label>성명 : <input type="text" id="name" size="10" ></label><br><br>
+ 		<!-- maxlength : 입력 최대길이 -->
+ 		<label>아이디 : <input type="text" id="id" maxlength="8"></label><br><br>
+ 		<label>우편번호 : <input type="text" id="zipcode" value="12345" readonly></label><br><br>
+ 		<!-- required : 필수 입력 지정, 입력여부 확인은 submit 발생하면 자동으로 진행됨 -->
+ 		<label>주소 : <input type="text" id="address" required></label><br><br>
+ 		<hr>
+ 		<label>비밀번호 : <input type="password" id="passwd" size="10"></label><br><br>
+ 		학년: <!-- 서버에 전송되는 값 : value 속성에 저장된 값, radio는 단일 선택만 가능해서 그룹으로 묶어줘야되는데
+ 		     그 방법은 name을 동일한 값으로 정해주는 것-->
+ 		<label><input type="radio" name="year" value="1"> 1학년 </label>
+ 		<label><input type="radio" name="year" value="2"> 2학년 </label>
+ 		<label><input type="radio" name="year" value="3"> 3학년 </label>
+ 		<label><input type="radio" name="year" value="4" checked> 4학년 </label><br><br>
+ 		취미:
+ 		<label><input type="checkbox" name="game" value="게임" > 게임 </label>
+ 		<label><input type="checkbox" name="movie" value="영화" > 영화 </label>
+ 		<label><input type="checkbox" name="reading" value="독서" > 독서 </label>
+ 		<label><input type="checkbox" name="sports" value="운동" checked> 운동 </label><br><br>
+ 		여행하고 싶은 나라 :
+ 		<select name="nation">
+ 			<option value="미국">미국</option>
+ 			<option value="중국">중국</option>
+ 			<option value="호주" selected>호주</option>
+ 			<option value="일본">일본</option>
+ 			<option value="브라질">브라질</option>
+ 			<option value="기타">기타</option>
+ 		</select><br><br>
+ 		
+ 		자기소개 <br>
+ 		<textarea rows="10" cols="50" name="content"></textarea><br><br>
+ 		첨부파일 선택 :
+ 		<input type="file" size="30"><br><br>
+ 		<input type="button" value="아이디 중복 확인"><br><br>
+ 		<input type="image" id="orderImg" src="image/cart.jpg"><br><br>
+ 		<label> 이메일 : <input type="email"></label><br><br>
+ 		
+ 		<label><input type="submit" value="회원가입"></label>
+ 		<label><input type="reset" value="취소"></label><br><br>		
+ 	</form>
+ 	<hr>
+ 	<!-- get은 입력한 데이터가 주소 뒤에 붙어서 전송되는데 name이 있는 값만 가져감 -->
+ 	<form method="get" action="search.jsp">
+ 		<label>주소 : <input type="text" id="address" required></label><br><br>
+ 		여행하고 싶은 나라 :
+ 		<select name="nation">
+ 			<option value="미국">미국</option>
+ 			<option value="중국">중국</option>
+ 			<option value="호주" selected>호주</option>
+ 			<option value="일본">일본</option>
+ 			<option value="브라질">브라질</option>
+ 			<option value="기타">기타</option>
+ 		</select><br><br>
+ 		<label><input type="submit" value="회원가입"></label>
+ 		<label><input type="reset" value="취소"></label>
+ 	</form>
+</body>
+</html>
+
+
+		<!-- label 태그와 input 태그를 같이 사용하면 클릭의 범위가 넓어짐 -->
+ 		<!-- input 태그 속성
+ 		     name : 입력상자의 이름
+ 		     type : text/password/checkbox/radio 입력 유형
+ 		     size : 입력 상자의 크기
+ 		     value : 초기값/태그가 지닌 값
+ 		     maxlength : 최대 길이
+ 		     placeholder : 입력할 내용의 힌트 표시
+ 		     readonly : 읽기 전용 표시 
+ 		     autocomplete : 자동 완성 기능 제어
+ 		     required : 필수 필드 지정
+ 		     autofocus : 입력 커서 표시
+ 		     hidden : 숨김 --> 
+ 		<!-- input 태그의 type 속성에서 사용 가능한 유형
+ 			 text : 한 줄의 텍스트 입력
+ 			 password : 비밀번호 입력
+ 			 checkbox : 체크박스 (여러 개 선택 가능)
+ 			 	속성 : type(체크박스타입),name(각 체크박스의 이름),value(선택한 체크박스의 값),checked(처음부터 선택한 상태로 만들기)
+ 			 radio : 라디오버튼  (1개만 선택 가능) ** name을 같게 해서 그룹으로 묶어줘야 함 
+ 			 	속성 : type(라디오타입),name(그룹이름),value(선택한 버튼의 값),checked(처음부터 선택한 상태로 만들기)
+ 			 button : 버튼
+ 			 file : 파일을 첨부할 수 있는 버튼
+ 			 image : submit 버튼 대신 사용할 이미지 삽입
+ 			 submit : 서버 전송 버튼
+ 			 reset : 리셋 취소 버튼 -->
+ 		<!-- select 태그
+ 			 select
+ 			 	name : 입력 양식 구분 이름
+ 			 	size : 출력될 목록 항목의 개수
+ 			 option
+ 			 	value : 각 항목의 값
+ 			 optgroup : 선택 옵션 그룹화 -->	
+		<!-- textarea 태그
+			 cols : 텍스트의 가로 길이
+			 rows : 텍스트의 세로 길이
+			 name : 이름 -->
+		<!-- 공간 분할 태그
+			 <div> block 형식으로 공간 분할
+			 <span> inline 형식으로 공간 분할 -->

@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+}
+
+a {
+  color: green;
+}
+
+.nav {
+  width:200px;
+  margin:0 auto;
+  background-color:gray;
+}
+
+#title {
+  color:blue;
+}

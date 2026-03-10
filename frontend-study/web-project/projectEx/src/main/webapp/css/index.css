@@ -1,0 +1,28 @@
+/*index.css*/
+@charset "UTF-8";
+
+/************** Header **************/
+#headerBox {
+  height:60px;
+  line-height:60px; /*줄간격 - 수직 가운데로 정렬 효과*/
+  padding:0;
+}
+
+#logoBox{
+  float:left;
+  height:60px;
+  line-height:60px;
+}
+
+/************** 메인메뉴 고정 **************/
+/* 윈도우가 스크롤 되면 메인 메뉴 고정 */
+/* js파일에서 addClass() 사용 */
+
+.mainMenuFixed {
+	position:fixed;
+	top:0px;
+}
+
+.mainMenuShadow {
+	box-shadow:0 3px 5px 0px gray;
+}

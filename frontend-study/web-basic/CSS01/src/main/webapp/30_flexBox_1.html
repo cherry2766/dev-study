@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>플렉서블 박스 - row (방향이 왼쪽 -> 오른쪽)</title>
+<style>
+  * {margin:0; padding:0;}
+  /* div 태그 display 기본값이 block */
+  .container {
+    width:500px;
+    height:300px;
+    border:solid 1px black;
+    margin:5px;
+  }
+  
+  .container div {
+    width:20%; 
+    height:30%;
+  }
+  
+  .container div:nth-child(1) {background:red;}
+  .container div:nth-child(2) {background:blue;}
+  .container div:nth-child(3) {background:yellow;}
+  
+  .container {
+    /* display:flex; 수직 방향 배치 - 수직 정렬, block이랑 동일하게 표현됨 */ 
+    display:inline-flex; /* 수평 방향 배치 - inline-block이랑 동일하게 표현됨(화면크기가 모두 표현되도록 크기가 커야함)*/
+    flex-direction:row; /*부모 박스(container)에서 자식박스(item)의 배치 방향을 결정 
+                                 (row(왼쪽시작),row-reverse(오른쪽시작)/column(위시작),column-reverse(아래시작)*/
+    justify-content:space-evenly; /*부모 박스(container) 내 item에 대한 정렬을 결정(flex-start(기본값):주축의 시작점,flex-end,center,space-between,space-around)*/ 
+  }
+</style>
+</head>
+<body>
+			<div class="container"> <!-- 부모박스 -->
+				<div></div><div></div><div></div> 
+			</div>
+			
+			<div class="container"> <!-- 부모박스 -->
+				<div></div><div></div><div></div>
+			</div>			
+</body>
+</html>

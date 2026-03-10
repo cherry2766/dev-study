@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>if문 연습문제2</title>
+		<script type="text/javascript">
+		
+		// 로그인 성공시 수도 퀴즈 문제 출력 및 결과 출력
+			var inputId = prompt("아이디 입력");
+			var inputPwd = parseInt(prompt("비밀번호 입력"));
+			
+			let id = "abcd";
+			let pwd = 1234;
+			
+			if(id==inputId && pwd==inputPwd){
+				alert("로그인 성공 " + id + "님 반갑습니다");
+				var answer = prompt("대한민국의 수도는?"); // answer 변수의 유형(유효범위) : 전역변수
+				
+			  if(answer == "서울") 
+				  document.write("정답입니다.")
+				else
+					document.write("틀렸습니다. 대한민국의 수도는 서울입니다");
+			} 
+			else {
+				alert("아이디 또는 비밀번호가 일치하지 않습니다");
+				document.write("종료합니다");}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

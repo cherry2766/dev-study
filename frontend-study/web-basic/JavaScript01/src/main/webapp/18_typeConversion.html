@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>형변환</title>
+		<script type="text/javascript">	
+			
+			var num1 = prompt("숫자1 입력");
+			var num2 = prompt("숫자2 입력");
+			
+			// Number() : 정수, 실수 형변환이 가능
+			document.write(Number(num1) +"<br>");
+			document.write(Number(num1) + Number(num2) +"<br>"); // 문자열의 더하기는 결합의 의미를 가지고 연산자 처리 가능하므로 형변환 진행되지 않음
+			document.write(num1 * num2 ); //문자열로 곱하기는 안되므로 document.write 내부에서 형변환 진행함
+		</script>
+	</head>
+	<body>	
+	</body>
+</html>

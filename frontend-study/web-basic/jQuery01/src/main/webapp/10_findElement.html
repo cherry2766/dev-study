@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS 선택자를 이용해 원하는 노드 찾기</title>
+        <style type="text/css">        	
+			#menuBox div {
+				float:left;
+				background-color:green;
+				width:100px;	
+				height:50px;		
+			}		
+		</style>	
+		<script src="jquery-3.7.1.min.js"></script>
+		<script type="text/javascript"> 
+			$(document).ready(function(){ 
+				  let $menuItem = $('.menuItem'); //객체 참조값 반환 받아서 jquery 변수에 저장
+				  let $indexSpan = $('#indexSpan');
+				  
+				  // each : jQuery 메서드 <<forEach와 유사함
+				  // this : 현재 참조하고 있는 객체
+				  $menuItem.each(function(index) {
+					  //특정 메뉴 아이템에 hover 이벤트를 적용 : hover(진입상태처리함수,나올때처리함수) -> 객체에 마우스가 진입하는 상태,/해당 객체에서 마우스가 나오는 상태
+					  $(this).hover(
+							  ()=> { //마우스가 객체로 진입할때의 처리
+								  $(this).css('backgroundColor','yellow');  // <- 1번째 콜백함수
+								  $indexSpan.text(index);
+							  },
+							  ()=> { //마우스가 객체에서 나올때 처리
+								  $(this).css('backgroundColor','green');   // <- 2번째 콜백함수
+								  $indexSpan.text('index');
+							  }
+					  )
+				  });
+				  
+				  
+			}); //ready() 종료
+		</script>  
+    </head>
+    
+     <body>
+    	<div id="wrap">  
+			<h2>인덱스 : <span id="indexSpan">index</span></h2>
+			<div id="menuBox">
+			   <div class="menuItem"></div>
+			   <div class="menuItem"></div>
+			   <div class="menuItem"></div>
+			   <div class="menuItem"></div>     
+		    </div>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+

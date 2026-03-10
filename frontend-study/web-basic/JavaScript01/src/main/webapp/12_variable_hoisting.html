@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>변수 호이스팅</title>
+		<script type="text/javascript">
+		  //호이스팅
+		  //변수와 함수의 메모리 공간을 선언하기 전에 미리 할당해서 사용 가능하게 하는 것
+		  //선언문 전에 변수를 사용하고 뒤에 변수를 선언하는 것
+		  //var 가능, let 불가능
+		  console.log(name);
+		  var name="홍길동";
+		  
+		  console.log(name2); //Cannot access 'name2' before initialization 오류발생
+	    let name2="홍길동";
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

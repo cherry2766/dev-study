@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>change 이벤트</title>
+        <style type="text/css">
+			* { text-align:center; }
+			table, tr, td {
+				margin: 0 auto; 
+				width: 120px;
+				border: solid 3px grey;
+				border-collapse: collapse;
+			}
+			th, .bg { 
+				background-color:#036;
+				color:white;
+				font-weight:bold;
+			}
+		</style>
+		<script src="jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {	
+				//전역변수 구성
+				//카메라 기본 가격 변수
+				let price = 4500000;
+				//가격 계산을 위한 전역 변수
+				//amount : 주문서 전체 상품 가격, chkAmount : 선택옵션 상품 가격, optAmount : 기본옵션 상품 가격 
+				let amount = 0;
+				let chkAmount = 0;
+				let optAmount = 0;
+				let $checkBox = $(':checkbox'); //체크박스 배열(유사배열)
+				//주문액을 계산하여 출력하는 함수
+				function showAmount() {
+					amount = price + optAmount + chkAmount;
+					$('#amount').text(amount.toLocaleString() + ' 원'); //주문액 출력, 천단위 구분자 포함toLocaleString()
+				}
+				
+				//select 태그의 option 변경(이벤트발생) 시 기본옵션 금액 계산 후 주문액 계산하는 함수 호출 모듈
+				  $('#basicOption').on('change',function(){
+					  //태그의 모든 value는 문자열로 생각해야 함
+					  optAmount = parseInt($(this).val());
+					  showAmount();
+				  });
+				
+				//checkBox의 check 옵션이 변경되면 선택옵션 계산 후 주문액 계산하는 함수 호출 모듈
+				  $checkBox.on('click',function(){
+					  //여러개인 체크박스 순회하면서 선택옵션 총 가격 계산
+					  optAmount = 0; //체크박스에 클릭 이벤트 발생할때마다 다시 계산 해야 하므로 초기화
+					  
+					  //체크박스마다 체크 확인 후 계산
+					  $checkBox.each(function(index){
+						  if($(this).is(':checked')) //선택한 경우에만
+							  chkAmount += parseInt($(this).val());
+					  });
+					  showAmount();
+				  });
+	 	  });
+			
+		</script> 
+    </head>
+    <body>
+        	<h1>카메라 주문서</h1>        
+            <table border="1">
+                <tr><td colspan="3"><img src="image/camera.jpg"></td></tr>
+                <tr><td class="bg">기본 가격</td><td  colspan="2">4,500,000 원</td></tr>   
+                <tr><td class="bg">기본 옵션 </td>
+                     <td  colspan="2"><select id="basicOption" >
+                                   <option value="0">선택하세요</option>
+                                   <option value="100000">삼각대 100,000원</option>
+                                   <option value="50000">차량용 충전기 50,000원</option>
+                              </select></td></tr>
+                <tr><th>선택 옵션</th><th>가격</th><th>선택</th></tr>   
+                <tr><td>렌즈 필터</td><td>30,000 원</td><td><input type="checkbox"  id="lenzFilter" value="30000"></td></tr>        
+                <tr><td>DSLR 가방</td><td>40,000 원</td><td><input type="checkbox"  id="dslrBag" value="40000"></td></tr>   
+                <tr><td>청소도구</td><td>7,000 원</td><td><input type="checkbox"  id="cleaningTools" value="7000"></td></tr> 
+                <tr><td class="bg">주문액</td><td id="amount" colspan="2">4,500,000 원</td></tr>           
+            </table>                 
+    </body>
+</html>

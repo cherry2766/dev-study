@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<!-- jQuery CDN 방식 전달 -->
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">	
+		  $(function() {
+		    //객체.attr() : style 속성이 아닌 태그의 다른 속성을 설정하거나 설정된 속성을 추출할 때 사용
+		    //속성 지정
+		    $('img').attr({
+		    	alt:'jQuery 라이브러리 사용 속성 지정',
+		    	src:'image/painting.jpg',
+		    	width:100
+		    });
+		    
+		    let src = $('script').attr('src'); //script 태그중 src 속성의 값을 반환
+		    //출력
+		    alert(src);
+		  });
+		</script>
+	</head>
+	<body>
+	     <img>
+	     <img>
+	     <img>
+	
+	</body>
+</html>

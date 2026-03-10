@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>first-child 선택자</title>
+	<style type="text/css">
+		#content div {
+			width: 400px;
+			height: 50px;
+			border: 1px solid black;
+			}
+
+		#content div:first-child { /*첫번째 자손 div*/
+			background: yellow;
+			}
+		#content div:first-child + div { /*두번째 자손 div*/
+			background: green;
+			}
+		#content div:first-child + div + div  { /*세번째 자손 div*/
+			background: gold;
+			}
+		/*first-child + div + div + div*
+		주의!! : 서수 선택시 : 앞뒤로 띄어쓰기 하면 안됨 div : first-child XX*/
+		#content div:nth-child(4) { /*네번째 자손 div*/
+			background: pink;
+			}
+	</style>
+</head>
+<body>
+	<div id="content">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+</body>
+</html>
+
+

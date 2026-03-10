@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>지역변수</title>
+		<script type="text/javascript">
+		  //지역변수는 특정 범위내에서만 사용하려고 만드는 변수 - 범위 종료시 삭제됨
+		  function f1() {
+			  var localVar1=100; // 함수영역에서 선언 - 지역변수
+		  }
+		  
+		  function f2() {
+			  var localVar2=200; // 함수영역에서 선언 - 지역변수
+			  localVar=300; // 전역변수(선언이 없으므로 전역변수)
+		  }
+		  
+		  {
+			  var localVar4=100; //전역변수 ({}에 있어도 함수가 아니므로 전역변수 처리됨)
+			  let localVar5=200; //지역변수 (let은 {}이 유효범위임)
+		  }
+		 
+		 function f3() {
+			 let localVar3=1000; // 함수 내에서 let 명시적 선언 - 지역변수
+		 }
+		 
+		 f1(); //호출 종료 후 f1의 지역변수 삭제됨
+		 f2(); //호출 종료 후 f2의 지역변수 삭제됨
+		 document.write(localVar+ "<br>"); //오류없음
+		 document.write(localVar1+ localVar2); //오류발생함! 지역변수를 영역 밖에서 사용함
+		  
+		f3(); //지역변수 localVar3 만들고 1000저장하고 변수 삭제됨
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

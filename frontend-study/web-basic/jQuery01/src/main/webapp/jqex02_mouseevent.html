@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+      div {
+        width:100px;
+        height:50px;
+        line-height:50px;
+        text-align:center;
+        color:white;
+        background-color:teal;
+        border-radius:20px;
+      } 
+    </style>
+		<script src="jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">	
+		  $(function () {
+			  $('div')
+			    .hover( //1번 이벤트 메서드 사용
+			      function () { 
+			        $(this).css('opacity', '0.5');
+			      },
+			      function () { 
+			        $(this).css('opacity', '1');
+			      }
+			    ) //2번 on 메서드 사용 
+			    .on('mouseover', function () {
+			      $(this).css('color', 'red');
+			    })
+			    .on('mouseout', function () {
+			      $(this).css('color', 'blue');
+			    });
+			});
+		</script>
+	</head>
+	<body>
+	   <div>버튼</div>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">	
+		  //let box = document.getElementById('box'); 
+		  // dom 객체 하위 요소에서 id 값이 box인 요소객체 반환, dom 요소가 해석되지 않은 상태에서 getElementById 진행
+		  // null 반환
+		  //box.innerHTML="변경"; //null은 innerHTML 사용불가(오류발생)
+		</script>
+	</head>
+	<body>
+	
+	<div id="box">box</div>
+	<!--스크립트코드의 위치에 따라 dom 요소 접근이 가능함  -->
+	   <script type="text/javascript"> 
+      let box = document.getElementById('box'); 
+      box.innerHTML="변경"; 
+    </script>
+    
+	</body>
+</html>

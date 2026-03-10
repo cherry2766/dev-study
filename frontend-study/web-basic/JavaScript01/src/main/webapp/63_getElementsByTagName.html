@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>getElementsByTagName()</title>
+		<style type="text/css">
+			#box { margin:0 auto; width:70%; text-align:center;} 
+			table {margin:0 auto; width:100%;} 
+			td {width:50px; height:30px;}  
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				//모든 td 태그 참조값 반환 : 버튼의 기능 반영이 td 속성 사용
+				  let tdArr = document.getElementsByTagName('td');
+			
+				//버튼 이벤트 핸들러 연결을 위한 버튼 참조값 반환
+				  let setNumberBtn = document.getElementById("setNumberBtn");
+				  let setColorBtn = document.getElementById("setColorBtn");
+				  let clearNumberBtn = document.getElementById("clearNumberBtn");
+				  let clearColorBtn = document.getElementById("clearColorBtn");
+				  
+				  //버튼에 이벤트 추가
+				  //번호 채우기
+				  setNumberBtn.onclick = function() {
+					  for(let i=0; i<tdArr.length;i++)
+						  tdArr[i].innerHTML = i;
+				  }
+				  
+				  setColorBtn.onclick = function() {
+					  let colors = ["red", "orange", "yellow", "green", "blue", "navy","violet"];
+				    for(let i=0; i<tdArr.length;i++)
+		          tdArr[i].style.background = colors[i];
+				  }
+				  
+				  clearNumberBtn.onclick = function() {
+					  //tdArr의 타입은 HTML Collection 타입 : getElementsByTagName()의 반환 집합 형태
+					  //배열로 변환 후 사용
+					  //HTML Collection 타입 : forEach 메서드는 없음
+					  for(let i=0; i<tdArr.length;i++)
+			         tdArr[i].innerHTML ="";
+					  
+				  }
+				  
+				  clearColorBtn.onclick = function() {
+					  for(let i=0; i<tdArr.length;i++)
+			              tdArr[i].style.background = "white";
+				  }
+				  
+			};
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<table border="1">
+				<tr>
+					<td></td><td></td><td></td><td></td>
+					<td></td><td></td><td></td>
+				</tr>
+			</table><p>
+			<button id="setNumberBtn">셀에 번호 채우기</button> 
+			<button id="setColorBtn">셀에 색상 채우기</button><p>
+			
+			<button id="clearNumberBtn">셀의 번호 지우기</button> 
+			<button id="clearColorBtn">셀의 색상 지우기</button>			
+		</div>
+	</body>
+</html>

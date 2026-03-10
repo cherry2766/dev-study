@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>querySelectorAll()</title>
+		<script type="text/javascript">
+		    window.onload = function() {
+		    	//여러 선택자를 이용한 객체 참조 반환 예제 - 한번에 여러 선택자 인수 전달 '선택자1,선택자2,선택자3'
+		    	let headers = document.querySelectorAll('h3,#h1Id2,.h2Class2');
+		    	
+		    	for(let i=0; i<headers.length; i++) {
+		    		  let header = headers[i];
+		    		  
+		    		  header.style.color="blue";
+		    		  header.style.background="pink";
+		    	}
+		    }
+		</script>
+	</head>
+	<body>
+		<h1>Header</h1>
+		<h1>Header</h1>
+		<h1>Header</h1>
+		<h1 id="h1Id1">Header</h1>
+		<h1 id="h1Id2">H1Id2</h1>
+		<h2 class="h2Class1">Header</h2>
+		<h2 class="h2Class1">Header</h2>
+		<h2 class="h2Class2">H2Class2</h2>
+		<h2 class="h2Class2">H2Class2</h2>
+		<h3>h3</h3>
+	</body>
+</html>

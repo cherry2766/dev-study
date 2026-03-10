@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+     <style>
+	      body {
+	      height: 100vh;
+	      }
+    </style>
+		<script type="text/javascript">	
+		  window.onload = function() {
+			  const body = document.body;
+		  	
+			  body.addEventListener('dblclick', () => {
+		    	let r = Math.floor(Math.random()*256); // 랜덤함수 사용해서 0~255로 설정
+		    	let g = Math.floor(Math.random()*256);
+		    	let b = Math.floor(Math.random()*256);
+		    	
+		    	let color = `rgb(${r},${g},${b})`;
+		    	
+		    	body.style.backgroundColor = color;
+		    });
+		    
+		  };
+		    
+		</script>
+	</head>
+	<body>
+	
+	<h2>바탕 아무 곳에나 더블 클릭</h2>
+	<hr>
+	<p>바탕 아무 곳이나 <b>더블클릭</b>하면 배경색이 랜덤하게 변합니다.</p>
+	
+	
+	</body>
+</html>

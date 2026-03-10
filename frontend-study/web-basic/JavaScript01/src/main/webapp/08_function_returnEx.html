@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">	
+		  function start() {
+			  let scoreInput = confirm("성적을 입력하시겠습니까?");
+			   if(scoreInput) {
+				   alert("평균 : " + input());
+			   }
+			   else {
+				   alert("종료합니다");
+			   }
+		  }
+		  function input() {
+			  let score1 = Number(prompt("국어 점수 입력 : "));
+	      let score2 = Number(prompt("영어 점수 입력 : "));
+	      let score3 = Number(prompt("수학 점수 입력 : "));
+	      
+	      return (score1 + score2 + score3) / 3;
+		  }
+		</script>
+	</head>
+	<body>
+	 <button onClick="start()">성적 입력</button>
+	</body>
+</html>

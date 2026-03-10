@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>동적 연결 이벤트 방식</title>
+		<script src="jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// createBtn 버튼 클릭했을 때
+	       $('#createBtn').on('click',function(){
+	    	   //after : 현재 참조중인 객체 이후에 태그 생성
+	    	   $(this).after("<p><input type='button' id='newBtn1' value='새버튼1'></p>" +
+	    			             "<p><input type='button' id='newBtn2' value='새버튼2'></p>")
+	       });
+				
+				// 버튼 이벤트 처리
+				// (1) 동적 연결 방식 아님
+				// 이벤트 등록 시점이 $(document).ready 이벤트 발생한 이후에 바로 등록
+				// #newBtn1 생성되는 시점 : 새버튼1 눌렀을 때임, 언제 클릭할지 모름
+				// 이 시점에서는 객체가 없음 - 이벤트 등록 불가
+        $('#newBtn1').on('click',function(){
+        	alert("[새버튼 1] 클릭했습니다");
+        });
+				
+				// (2) 동적 연결 방식
+				// on 메서드를 document에 적용(document야 나중에 #newBtn2 이거 만들어지면 이벤트 발생시켜줘! 외워외워!)
+				$(document).on('click', '#newBtn2',function(){
+					alert("[새버튼 2] 클릭했습니다");
+				});
+					
+							
+			});
+		</script>
+	</head>
+	<body>
+		<button id="createBtn">새 버튼 만들기2</button>
+	</body>
+</html>
