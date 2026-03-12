@@ -407,6 +407,7 @@ gradle-app.setting
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij,eclipse,node,react,visualstudiocode
 
 # IntelliJ
+*.iml
 .idea/
 **/.idea/
 
