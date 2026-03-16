@@ -50,8 +50,8 @@ try {
 	
 	pstmt.executeUpdate();
 	
-	response.sendRedirect("post_list.jsp");
-
+	response.sendRedirect("post_list.jsp"); // 사용자가 입력한 게시글 저장한 후 목록보기 페이지 요청
+ 
 } catch (Exception ex) {
 	out.println("오류가 발생했습니다. 오류 메시지 : " + ex.getMessage());
 }
