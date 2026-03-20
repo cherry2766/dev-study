@@ -1,6 +1,8 @@
 package sec03;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,19 +50,40 @@ public class JoinResServlet extends HttpServlet {
 
 		String department = request.getParameter("department");
 
-		System.out.println("성명 : " + name);
-		System.out.println("ID : " + id);
-		System.out.println("비밀번호 : " + pwd);
-		System.out.println("휴대폰 번호 : " + phone);
-		System.out.println("학년 : " + year);
-		System.out.print("관심분야 : ");
-
-		for (String s : interests) {
-			System.out.print(s + " ");
+//		System.out.println("성명 : " + name);
+//		System.out.println("ID : " + id);
+//		System.out.println("비밀번호 : " + pwd);
+//		System.out.println("휴대폰 번호 : " + phone);
+//		System.out.println("학년 : " + year);
+//		System.out.print("관심분야 : ");
+//
+//		for (String s : interests) {
+//			System.out.print(s + " ");
+//		}
+//		System.out.println();
+//
+//		System.out.println("학과 : " + department);
+		
+		String interest_list = "";
+		for(String interest : interests) {
+			interest_list += interest + " ";
 		}
-		System.out.println();
-
-		System.out.println("학과 : " + department);
+		
+		//response 처리
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		//output stream : 톰캣 컨테이너의 버퍼(서버의 저장공간)로 연결됨, 서버는 응답데이터를 버퍼에 저장했다가 한번에 클라이언트로 전송
+		out.println("<html><head></head><body>");
+		out.println("<h1>회원 가입 내용</h1><br>");
+		out.println("이름 : " + name + "<br>");
+		out.println("ID : " + id + "<br>");
+		out.println("비밀번호 : " + pwd + "<br>");
+		out.printf("휴대폰 번호 : %s - %s - %s<br>", phone1, phone2, phone3);
+		out.println("학년 : " + year + "<br>");
+		out.println("관심분야 : " + interest_list + "<br>");
+		out.println("학과 : " + department + "<br>");
+		out.println("</body></html>");
 	}
 
 }
