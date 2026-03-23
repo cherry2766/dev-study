@@ -32,6 +32,7 @@ public class MemberDAO {
 		return con;
 	}
 	
+	//모든 회원정보 조회 집합객체(ArrayList)로 구성해서 반환
 	public ArrayList<MemberVO> memberSelect() {
 		Connection con = null;
 		PreparedStatement pstmt = null;
