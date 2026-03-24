@@ -1,0 +1,42 @@
+package bean;
+
+public class MemberBean {
+	private String memId;
+	private String memPwd;
+	private String memName;
+	private String memEmail;
+	
+	
+	public MemberBean(String memId, String memPwd, String memName, String memEmail) {
+		this.memId = memId;
+		this.memPwd = memPwd;
+		this.memName = memName;
+		this.memEmail = memEmail;
+	}
+	public String getMemId() {
+		return memId;
+	}
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+	public String getMemPwd() {
+		return memPwd;
+	}
+	public void setMemPwd(String memPwd) {
+		this.memPwd = memPwd;
+	}
+	public String getMemName() {
+		return memName;
+	}
+	public void setMemName(String memName) {
+		this.memName = memName;
+	}
+	public String getMemEmail() {
+		return memEmail;
+	}
+	public void setMemEmail(String memEmail) {
+		this.memEmail = memEmail;
+	}
+	
+	
+}
