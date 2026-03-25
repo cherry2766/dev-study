@@ -13,7 +13,7 @@ public class Item {
     public Item() {
     }
 
-    public Item(Integer price, String itemName, Integer quantity) {
+    public Item(String itemName, Integer price, Integer quantity) {
         this.price = price;
         this.itemName = itemName;
         this.quantity = quantity;
