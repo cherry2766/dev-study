@@ -10,7 +10,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
-	<jsp:useBean id="memb" class="w" scope="page">
+	<jsp:useBean id="member" class="bean.MemberBean" scope="page">
 		<jsp:setProperty property="*" name="member"/>
 	</jsp:useBean>
 	

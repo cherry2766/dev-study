@@ -10,6 +10,7 @@
 <body>
 	<h3>객체 인스턴스 바인딩</h3>
 	<%
+		//비즈니스 로직 처리로 가정 : member 정보 수정을 위한 객체
 		MemberVOEl mem = new MemberVOEl("lee","1234","이몽룡","lee@abc.com");
 		//바인딩
 		request.setAttribute("mem", mem);

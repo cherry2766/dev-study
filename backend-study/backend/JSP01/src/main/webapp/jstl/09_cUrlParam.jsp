@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:url var="url1" value="/jstl/urlParamRes.jsp">
+	<c:param name="id" value="hong"/>
+	<c:param name="pwd" value="1234"/>
+	<c:param name="name" value="홍길동"/>
+	<c:param name="email" value="hong@test.com"/>
+</c:url>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>09_cUrlParam</title>
+</head>
+<body>
+	<a href="${url1 }">회원 정보 출력</a>
+</body>
+</html>

@@ -6,6 +6,9 @@ public class MemberVOEl {
 	private String memName;
 	private String memEmail;
 	
+	public MemberVOEl() {
+    }
+	
 	
 	public MemberVOEl(String memId, String memPwd, String memName, String memEmail) {
 		this.memId = memId;
