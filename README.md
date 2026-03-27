@@ -13,6 +13,7 @@ dev-study
  │   ├ backend
  │   ├ java-basic
  │   ├ jdbc
+ │   ├ jpa
  │   └ spring
  │
  ├ frontend-study
@@ -29,22 +30,32 @@ dev-study
 
 ### Java
 
-* Java 기본 문법
-* 객체지향 프로그래밍
-* 컬렉션 프레임워크
-* 예제 프로젝트
+- Java 기본 문법
+- 객체지향 프로그래밍
+- 컬렉션 프레임워크
+- 예제 프로젝트
 
 ### JDBC
 
-* DB 연결
-* CRUD 구현
-* DAO / DTO 패턴
+- DB 연결
+- CRUD 구현
+- DAO / DTO 패턴
 
 ### Spring
 
-* Spring 기본 개념 학습
-* MVC 구조 이해
-* 예제 코드
+- Spring 기본 개념 학습
+- MVC 구조 이해
+- 예제 코드
+
+### JPA
+
+- JPA 기본 개념 및 동작 원리
+- 엔티티 매핑 (@Entity, @Id, 연관관계 매핑)
+- 영속성 컨텍스트 및 1차 캐시
+- 변경 감지(Dirty Checking)
+- 지연 로딩(LAZY)과 즉시 로딩(EAGER)
+- JPQL 기본 문법
+- Spring Data JPA 활용
 
 ---
 
@@ -52,14 +63,14 @@ dev-study
 
 ### Web Basic
 
-* HTML
-* CSS
-* JavaScript
-* jQuery
+- HTML
+- CSS
+- JavaScript
+- jQuery
 
 ### React
 
-* React 기본 학습 코드
+- React 기본 학습 코드
 
 ---
 
@@ -67,11 +78,11 @@ dev-study
 
 ### Oracle SQL
 
-* DDL
-* DML
-* JOIN
-* SubQuery
-* SQL 실습 문제
+- DDL
+- DML
+- JOIN
+- SubQuery
+- SQL 실습 문제
 
 ---
 

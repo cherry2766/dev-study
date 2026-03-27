@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"  
     errorPage="addException.jsp" %> 
 <% 
+	// 예외 발생 가능
    int num = Integer.parseInt(request.getParameter("num"));
    int sum=0;
    for(int i =1 ; i<= num ; i++){
