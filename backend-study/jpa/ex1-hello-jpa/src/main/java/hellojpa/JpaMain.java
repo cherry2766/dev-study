@@ -15,18 +15,12 @@ public class JpaMain {
         tx.begin();
 
         try{
-            //저장
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
-
             Member member = new Member();
-            member.setUsername("member1");
-            member.setTeam(team);
-            em.persist(member);
+            member.setUsername("hello");
+            member.setHomeAddress(new Address("city", "street", "1000"));
+            member.setWorkPeriod(new Period());
 
-            em.flush();
-            em.clear();
+            em.persist(member);
 
             tx.commit();
         } catch (Exception e) {
