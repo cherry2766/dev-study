@@ -15,12 +15,13 @@ public class JpaMain {
         tx.begin();
 
         try{
-            Member member = new Member();
-            member.setUsername("hello");
-            member.setHomeAddress(new Address("city", "street", "1000"));
-            member.setWorkPeriod(new Period());
+            List<Member> result = em.createQuery("select m from Member m where m.username like '%kim%'",
+                    Member.class
+            ).getResultList();
 
-            em.persist(member);
+            for (Member member : result) {
+                System.out.println("member = " + member);
+            }
 
             tx.commit();
         } catch (Exception e) {
