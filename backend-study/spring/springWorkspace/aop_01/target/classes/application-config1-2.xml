@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="performanceAspect" class="com.spring_aop.xml2.PerformanceAspect"/>
+	
+	<aop:config>
+
+		<aop:aspect id="performanceAspect" ref="performanceAspect">
+
+			<aop:pointcut id="timeElapse" expression="within(com.spring_aop.xml2.*)" />
+
+			<aop:around pointcut-ref="timeElapse" method="trace"/>
+		</aop:aspect>
+	</aop:config>
+	
+	<bean id="circle" class="com.spring_aop.xml2.Circle">
+		<property name="r" value="5"/>
+	</bean>
+	
+	<bean id="evaluation" class="com.spring_aop.xml2.Evaluation">
+		<property name="korScore" value="90"/>
+		<property name="engScore" value="85"/>
+		<property name="MathScore" value="70"/>
+	</bean>
+	
+</beans>
