@@ -1,27 +1,28 @@
-package com.spring_aop.xml2;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
+package com.spring_aop.annotation;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 
-//advice 클래스
+//공통기능 메소드 포함 (proxy에 해당)
+@Aspect
 public class PerformanceAspect {
+	//where : @Pointcut("expression")
+	@Pointcut("within(com.spring_aop.annotation.*)")
+	private void pointcutMethod() {
+		
+	}
 	
-	public Object trace(ProceedingJoinPoint joinPoint) throws Throwable { 
+	//when : advice 시점(point-cut ref가 필요)
+	@Around("pointcutMethod()")
+	public Object trace(ProceedingJoinPoint joinPoint) throws Throwable { //JoinPoint : 핵심 기능 메소드 호출 시점
 		Signature s = joinPoint.getSignature();
-		String methodName = s.getName(); 
+		String methodName = s.getName(); //핵심기능 메소드 이름
 		
 		System.out.println("------------------------------------------");
 		System.out.println("[Log] Before: " +  methodName + "() : 실행 시작");
-		System.out.println("------------------------------------------");
-		
-		//시작시간
-		long curLong = System.currentTimeMillis();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd:HH:mm:ss.SSS");
-		String curTime = sdf.format(new Date(curLong));
-		System.out.println("[Log] Before: " +  curTime + "() : 실행 시작 시간");
 		System.out.println("------------------------------------------");
 		
 		long startTime = System.nanoTime();
@@ -29,23 +30,18 @@ public class PerformanceAspect {
 		Object result = null;
 		
 		try {
-			result = joinPoint.proceed(); 
+			result = joinPoint.proceed(); // 핵심기능 수행
 		}catch(Exception e) {
 			System.out.println("[LOG] Exception: " + methodName);
 		}
 		
-		//종료시간
-		curLong = System.currentTimeMillis();
-		curTime = sdf.format(new Date(curLong));
 		long endTime = System.nanoTime();
 		
 		System.out.println("------------------------------------------");
 		System.out.println("[Log] After: " +  methodName + "() : 실행 종료");
-		System.out.println("[Log] After: " +  curTime + "() : 실행 종료 시간");
 		System.out.println("[Log] : " + methodName + "() 실행시간 : " + (endTime - startTime)+ "ns");
 		System.out.println("------------------------------------------");
 		
 		return result;
 	}
-
 }
