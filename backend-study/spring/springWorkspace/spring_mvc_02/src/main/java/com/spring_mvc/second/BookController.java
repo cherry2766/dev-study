@@ -1,5 +1,7 @@
 package com.spring_mvc.second;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,20 @@ public class BookController {
 		mv.setViewName("/book/bookInfoView");
 		
 		return mv;
+	}
+	
+	//다중매핑
+	@RequestMapping(value= {"/bookInfoView3","/bookInfoView4"})
+	public String showBookInfo34(HttpServletRequest request, Model model) {
+		if(request.getServletPath().equals("/bookInfoView3")) {
+			model.addAttribute("name", "스프링 프레임워크3");
+			model.addAttribute("price", "40000");
+		}else if(request.getServletPath().equals("/bookInfoView4")){
+			model.addAttribute("name", "스프링 프레임워크4");
+			model.addAttribute("price", "50000");
+		}
+		
+		return "/book/bookInfoView";
 	}
 
 }

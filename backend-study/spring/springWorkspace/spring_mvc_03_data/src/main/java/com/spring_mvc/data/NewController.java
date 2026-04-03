@@ -35,5 +35,19 @@ public class NewController {
 		
 		return mv;
 	}
+	
+	//model 객체와 modelAndView 객체를 동시에 사용했을 경우
+	//model 객체는 스프링에 의해 view로 자동 전달 / modelAndView는 개발자에 의해 직접 리턴해야 함
+	@RequestMapping("/showInfo3")
+	public ModelAndView showInfo3(Model model, ModelAndView mv) {
+		mv.addObject("name1", "강길동");
+		mv.addObject("address", "부산");
+		mv.setViewName("showInfo3");
+		
+		model.addAttribute("name", "이몽룡");
+		model.addAttribute("age", 23);
+		
+		return mv;
+	}
 
 }

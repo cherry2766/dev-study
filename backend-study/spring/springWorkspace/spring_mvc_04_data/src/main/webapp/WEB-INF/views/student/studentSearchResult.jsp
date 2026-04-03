@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	index 페이지 입니다. <br>
-	
-	<a href="/data/showInfo">showInfoModel</a><br>
-	<a href="/data/showInfo2">showInfoModelAndView</a><br>
-	<a href="/data/showInfo3">showInfoModelAndView / Model</a><br>
-	
+
 </body>
 </html>
