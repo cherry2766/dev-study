@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<h3>상품 검색</h3>
-		<form method="post" action="/project/product/productSearch">
+		<form method="post" action="/data2/product/productSearch">
 			<select id="type" name="type">
 				<option value="">검색 조건 선택</option>
 				<option value="no">상품번호</option>

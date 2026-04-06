@@ -1,14 +1,18 @@
 package com.spring_mvc.DTO;
 
-import java.time.LocalDate;
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Product {
 	private String prdNo;
 	private String prdName;
 	private int prdPrice;
-	private String prdCompany;
-	private String prdDate;
-	private int prdStock;
+	private String prdMaker;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date prdDate;
+	private String prdStock;
+	
 	public String getPrdNo() {
 		return prdNo;
 	}
@@ -27,25 +31,23 @@ public class Product {
 	public void setPrdPrice(int prdPrice) {
 		this.prdPrice = prdPrice;
 	}
-	public String getPrdCompany() {
-		return prdCompany;
+	public String getPrdMaker() {
+		return prdMaker;
 	}
-	public void setPrdCompany(String prdCompany) {
-		this.prdCompany = prdCompany;
+	public void setPrdMaker(String prdMaker) {
+		this.prdMaker = prdMaker;
 	}
-	
-	public String getPrdDate() {
+	public Date getPrdDate() {
 		return prdDate;
 	}
-	public void setPrdDate(String prdDate) {
+	public void setPrdDate(Date prdDate) {
 		this.prdDate = prdDate;
 	}
-	public int getPrdStock() {
+	public String getPrdStock() {
 		return prdStock;
 	}
-	public void setPrdStock(int prdStock) {
+	public void setPrdStock(String prdStock) {
 		this.prdStock = prdStock;
 	}
-	
-	
+		
 }
