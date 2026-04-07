@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring_mvc.mybatisEx.model.IBookDAO">
+	<select id="listAllBook"
+		resultType="com.spring_mvc.mybatisEx.vo.BookVO">
+		select * from book order by bookNo
+	</select>
+
+	<select id="detailViewBook" parameterType="String"
+		resultType="com.spring_mvc.mybatisEx.vo.BookVO">
+		select * from book where bookNo = #{bookNo}
+	</select>
+	
+	<insert id="insertBook" parameterType="com.spring_mvc.mybatisEx.vo.BookVO">
+		insert into book(bookNo, bookName, bookAuthor, bookPrice, bookDate, bookStock, pubNo)
+		values (#{bookNo}, #{bookName}, #{bookAuthor}, #{bookPrice}, #{bookDate}, #{bookStock}, #{pubNo})
+	</insert>
+</mapper>

@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 		
 		<context:property-placeholder location="classpath:database/jdbc.properties"/>
-		<context:component-scan base-package="com.spring_mvc.mybatis"/>
+		<context:component-scan base-package="com.spring_mvc.mybatisEx"/>
 		
 		<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 			<property name="driverClassName" value="${jdbc.driverClassName}"/>
@@ -16,12 +16,14 @@
 			<property name="username" value="${jdbc.username}"/>
 			<property name="password" value="${jdbc.password}"/>
 		</bean>
+		<!-- Mybatis가 사용할 connection등 dbms 관련 객체 인스턴스 주입 -->
+		<!-- Mybatis는 sqlSessionFactoryBean이라는 객체 활용해서 DB 통신을 진행함 -->
 		
+		<!-- dbms 연결과 쿼리 처리 담당할 bean : 직접 connection pool 사용 -->
 		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-			<property name="dataSource" ref="dataSource"/>
-			<property name="mapperLocations" value="classpath:com/spring_mvc/mybatis/**/*.xml"/>
+			<property name="dataSource" ref="dataSource"></property>
+			<property name="mapperLocations" value="classpath:com/spring_mvc/mybatisEx/**/*.xml"/>
 		</bean>
-		
-		<mybatis-spring:scan base-package="com.spring_mvc.mybatis.model"/>
+		<mybatis-spring:scan base-package="com.spring_mvc.mybatisEx.model"/>
 
 </beans>
