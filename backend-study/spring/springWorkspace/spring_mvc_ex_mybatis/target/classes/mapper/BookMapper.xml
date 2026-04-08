@@ -18,4 +18,13 @@
 		insert into book(bookNo, bookName, bookAuthor, bookPrice, bookDate, bookStock, pubNo)
 		values (#{bookNo}, #{bookName}, #{bookAuthor}, #{bookPrice}, #{bookDate}, #{bookStock}, #{pubNo})
 	</insert>
+	
+	<update id="updateBook" parameterType="com.spring_mvc.mybatisEx.vo.BookVO">
+		UPDATE book SET bookName=#{bookName}, bookAuthor=#{bookAuthor}, bookPrice=#{bookPrice}, 
+		bookDate=#{bookDate},bookStock=#{bookStock}, pubNo=#{pubNo} WHERE bookNo=#{bookNo}
+	</update>
+	
+	<delete id="deleteBook" parameterType="string">
+		DELETE FROM book WHERE bookNo=#{bookNo}
+	</delete>
 </mapper>

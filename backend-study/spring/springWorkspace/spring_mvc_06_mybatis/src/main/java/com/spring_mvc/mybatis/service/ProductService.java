@@ -19,7 +19,6 @@ public class ProductService implements IProductService {
 	
 	@Override
 	public ArrayList<ProductVO> listAllProduct() {
-		//dao의 관련 메소드 호출
 		return dao.listAllProduct();
 	}
 
@@ -31,13 +30,13 @@ public class ProductService implements IProductService {
 
 	@Override
 	public void updateProduct(ProductVO prdVo) {
-		// TODO Auto-generated method stub
+		dao.updateProduct(prdVo);
 		
 	}
 
 	@Override
 	public void deleteProduct(String prdNo) {
-		// TODO Auto-generated method stub
+		dao.deleteProduct(prdNo);
 		
 	}
 
@@ -45,5 +44,19 @@ public class ProductService implements IProductService {
 	public ProductVO detailViewProduct(String prdNo) {
 		return dao.detailViewProduct(prdNo);
 	}
+	
+	//상품번호 중복 확인
+	@Override
+	public String prdNoCheck(String prdNo) {
+		String no = dao.prdNoCheck(prdNo);
+		String result = "avaliable";
+		
+		if(no != null) { // 상품번호가 존재
+			result = "no_avaliable";
+		}
+		return result;
+	}
+	
+	
 	
 }

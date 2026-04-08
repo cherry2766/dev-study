@@ -23,6 +23,16 @@
     
 		<a href="<c:url value='/'/>">[홈으로 이동]</a> <br>
 
-		<a href="<c:url value='/book/updateBookFrom'/>">[도서 정보 수정]</a> 
+		<a href="<c:url value='/book/updateBookForm/${book.bookNo}'/>">[도서 정보 수정]</a> <br>
+	
+		<a href="javascript:deleteCheck();">[도서 정보 삭제]</a>
+		<script type="text/javascript">
+			function deleteCheck() {
+				let ans = confirm("삭제 하시겠습니까?");
+				if(ans) {
+					location.href="<c:url value='/book/deleteBook/${book.bookNo}'/>"
+				}
+			}
+		</script>
 	</body>
 </html>

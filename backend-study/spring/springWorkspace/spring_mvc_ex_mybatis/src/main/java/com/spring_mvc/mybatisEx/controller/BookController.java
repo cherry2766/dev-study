@@ -48,5 +48,24 @@ public class BookController {
 		service.insertBook(vo);
 		return "redirect:/book/listAllBook";
 	}
+	
+	@RequestMapping("/book/updateBookForm/{bookNo}")
+	public String viewUpdateForm(@PathVariable String bookNo, Model model) {
+		BookVO book = service.detailViewBook(bookNo);
+		model.addAttribute("book",book);
+		return "book/updateBookForm";
+	}
+	
+	@RequestMapping("/book/updateBook")
+	public String updateBook(BookVO book) {
+		service.updateBook(book);
+		return "redirect:/book/listAllBook";
+	}
+	
+	@RequestMapping("/book/deleteBook/{bookNo}")
+	public String deleteBook(@PathVariable String bookNo) {
+		service.deleteBook(bookNo);
+		return "redirect:/book/listAllBook";
+	}
 
 }
