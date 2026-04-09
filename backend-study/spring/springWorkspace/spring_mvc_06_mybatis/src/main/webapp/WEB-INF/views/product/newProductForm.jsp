@@ -7,7 +7,13 @@
 		<meta charset="UTF-8">
 		<title>productForm</title>
 		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-		<script src="<c:url value='/js/prdNoCheck.js'/>"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<!-- <script src="<c:url value='/js/prdNoCheck.js'/>"></script> -->
+		<!-- <script src="<c:url value='/js/prdNoCheck1.js'/>"></script> -->
+		<!-- <script src="<c:url value='/js/prdNoCheck2.js'/>"></script> -->
+		<!-- <script src="<c:url value='/js/prdNoCheck3.js'/>"></script> -->
+		<!-- <script src="<c:url value='/js/prdNoCheck4.js'/>"></script> -->
+		<script src="<c:url value='/js/prdNoCheck5.js'/>"></script>
 	</head>
 	<body>
 		<h3>상품 정보 등록</h3>

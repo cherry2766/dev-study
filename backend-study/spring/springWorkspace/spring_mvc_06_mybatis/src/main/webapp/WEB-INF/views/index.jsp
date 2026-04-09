@@ -13,6 +13,9 @@
 		<a href="/mybatis/product/listAllProduct">전체 상품 조회</a><br> 
 		<a href="<c:url value='/product/listAllProduct' />">전체 상품 조회</a><br>
 		<a href="<c:url value='/product/newProductForm' />">상품 등록</a><br>
+		<a href="<c:url value='/product/productSearchForm1' />">상품 등록1</a><br>
+		<a href="<c:url value='/product/productSearchForm2' />">상품 등록2</a><br>
+		<a href="<c:url value='/product/productSearchForm3' />">상품 등록3(RestController)</a><br>
 		
 		<h3>이미지 연습</h3>
 		resources 폴더 활용 : <img src="<c:url value='/resources/image/apple.png'/>"><br>

@@ -1,6 +1,7 @@
 package com.spring_mvc.mybatisEx.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,24 @@ public class BookService implements IBookService{
 	public BookService(IBookDAO dao) {
         this.dao = dao;
     }
+	
+
+	@Override
+	public ArrayList<BookVO> bookSearch(HashMap<String, Object> map) {
+		return dao.bookSearch(map);
+	}
+
+
+	@Override
+	public String bookNoCheck(String bookNo) {
+		String no = dao.bookNoCheck(bookNo);
+		String result = "ok";
+		
+		if(no != null) {
+			result = "no";
+		}
+		return result;
+	}
 
 	@Override
 	public ArrayList<BookVO> listAllBook() {

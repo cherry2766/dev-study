@@ -18,7 +18,11 @@
  				data: {"prdNo":prdNo},
  				dataType: 'text',
  				success: function(result) {
- 					
+ 					console.log(result);
+ 					if(result == "available") 
+ 						alert("사용가능한 번호 입니다.");
+ 					else
+ 						alert("사용 불가능한 번호 입니다.");
  				},
  				error: function(data, textStatus) {
  					alert("전송실패");

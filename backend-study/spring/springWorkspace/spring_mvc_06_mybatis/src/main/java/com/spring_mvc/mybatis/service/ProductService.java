@@ -1,6 +1,7 @@
 package com.spring_mvc.mybatis.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,6 +18,13 @@ public class ProductService implements IProductService {
 	@Qualifier("IProductDAO")
 	IProductDAO dao;
 	
+	
+	// 상품 정보 검색
+	@Override
+	public ArrayList<ProductVO> productSearch(HashMap<String, Object> map) {
+		return dao.productSearch(map);
+	}
+
 	@Override
 	public ArrayList<ProductVO> listAllProduct() {
 		return dao.listAllProduct();
@@ -49,10 +57,10 @@ public class ProductService implements IProductService {
 	@Override
 	public String prdNoCheck(String prdNo) {
 		String no = dao.prdNoCheck(prdNo);
-		String result = "avaliable";
+		String result = "available";
 		
 		if(no != null) { // 상품번호가 존재
-			result = "no_avaliable";
+			result = "no_available";
 		}
 		return result;
 	}

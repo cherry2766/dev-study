@@ -65,4 +65,18 @@
 		SELECT prdNo FROM product WHERE prdNo=#{prdNo}
 	</select>
 	
+	<!-- ArrayList<ProductVO> productSearch(HashMap<String, Object> map) -->
+	<!-- 파라미터 hashmap에 저장된 key : type, keyword -->
+	<select id="productSearch" resultMap="prdResult" resultType="hashmap">
+		SELECT * FROM product WHERE 
+			<choose>
+				<when test="type!= null and type.equals('prdName')">
+					prdName like '%'||#{keyword}||'%'
+				</when>
+				<when test="type!= null and type.equals('prdCompany')">
+					prdCompany like '%'||#{keyword}||'%'
+				</when>
+			</choose>
+	</select>
+	
 </mapper>
