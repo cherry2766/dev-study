@@ -4,7 +4,7 @@
 
 			<header>
         		<div id="headerBox">
-	            	<div id="logoBox"><a href="index.html"><img src="/image/logo.png" id="logoImg"></a></div>
+	            	<div id="logoBox"><a href="<c:url value='/'/>"><img src="/image/logo.png" id="logoImg"></a></div>
 					<div id="topMenuBox">
 					<!-- session 값에 따라 다르게 메뉴 항목 출력 -->
 					<!-- 로그인 하지 않은 경우 : 로그인, 회원가입 -->

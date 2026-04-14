@@ -1,10 +1,10 @@
-package com.spring_boot.projectEx.dto;
+package com.spring_boot_book.project.vo;
 
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-public class MemberDTO {
+public class MemberVO {
 	
 	private String memId;
 	private String memPwd;
@@ -17,7 +17,7 @@ public class MemberDTO {
 	private String memAddress1;
 	private String memAddress2;
 	
-	private MemberDTO() {}
+	private MemberVO() {}
 
 	public String getMemId() {
 		return memId;

@@ -5,8 +5,9 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.spring_boot_book.project.model.IBookDAO">
+
 	<resultMap id="bookResult"
-		type="com.spring_boot_mybatis.project_book.model.BookVO">
+		type="com.spring_boot_book.project.vo.BookVO">
 		<result property="bookNo" column="bookNo" />
 		<result property="bookAuthor" column="bookAuthor" />
 		<result property="bookPrice" column="bookPrice" />
@@ -15,32 +16,34 @@
 		<result property="pubNo" column="pubNo" />
 	</resultMap>
 
-	<!-- id는 BookDAO의 메소드 이름과 동일해야 함 -->
-
 	<!-- 전체 도서 조회 -->
 	<select id="listAllBook" resultMap="bookResult">
-		SELECT * FROM book ORDER BY bookNo;
+		SELECT * FROM book ORDER BY bookNo
 	</select>
 
 	<!-- 도서 등록 -->
 	<insert id="insertBook"
-		parameterType="com.spring_boot_mybatis.project_book.model.BookVO">
+		parameterType="com.spring_boot_book.project.vo.BookVO">
 		INSERT INTO book
 		VALUES(#{bookNo}, #{bookName}, #{bookAuthor}, #{bookPrice}, #{bookDate}, #{bookStock},
-		#{pubNo});
+		#{pubNo})
 	</insert>
 
 	<!-- 도서 상세 정보 조회 -->
 	<select id="detailViewBook" parameterType="string"
-		resultType="com.spring_boot_mybatis.project_book.model.BookVO">
+		resultType="com.spring_boot_book.project.vo.BookVO">
 		SELECT * FROM book WHERE bookNo = #{bookNo}
 	</select>
 
 	<!-- 도서 정보 수정 -->
 	<update id="updateBook">
-		UPDATE book SET bookName=#{bookName}, bookAuthor=#{bookAuthor},
-		bookPrice=#{bookPrice}, bookDate=#{bookDate}, bookStock=#{bookStock},
-		pubNo=#{pubNo}
+		UPDATE book
+		SET bookName=#{bookName},
+			bookAuthor=#{bookAuthor},
+			bookPrice=#{bookPrice},
+			bookDate=#{bookDate},
+			bookStock=#{bookStock},
+			pubNo=#{pubNo}
 		WHERE bookNo=#{bookNo}
 	</update>
 
@@ -54,9 +57,10 @@
   		SELECT bookNo FROM book WHERE bookNo=#{bookNo}
   	</select>
 
-	<!--  상품 검색 -->
+	<!-- 도서 검색 -->
   	<select id="bookSearch" parameterType="hashmap" resultMap="bookResult">
-  		SELECT * FROM book WHERE
+  		SELECT * FROM book
+  		WHERE
   			<choose>
   				<when test="type != null and type.equals('bookName')">
   					bookName LIKE CONCAT('%', #{keyword}, '%')
@@ -66,10 +70,5 @@
   				</when>
   			</choose>
   	</select>
-
-
-
-
-
 
 </mapper>

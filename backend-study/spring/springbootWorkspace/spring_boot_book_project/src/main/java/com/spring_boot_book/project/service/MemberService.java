@@ -1,4 +1,4 @@
-package com.spring_boot.projectEx.service;
+package com.spring_boot_book.project.service;
 
 import java.util.HashMap;
 
@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.spring_boot.projectEx.dto.MemberDTO;
-import com.spring_boot.projectEx.model.IMemberDAO;
+import com.spring_boot_book.project.model.IMemberDAO;
+import com.spring_boot_book.project.vo.MemberVO;
 
 @Service
 @Primary
@@ -19,9 +19,6 @@ public class MemberService implements IMemberService{
 	@Autowired
 	PasswordEncoder pwdEncoder;
 	
-	//비밀번호 암호화 처리 한 경우 : map에서 id와 pwd 추출
-	//dao에게 id만 전달해서 해당 id의 레코드가 있는지 확인 후 pwd 전달받음
-	//암호화된 pwd와 평문 pwd를 대조해서 같으면 로그인 처리 메시지를 컨트롤러에게 전달
 	@Override
 	public String loginCheck(HashMap<String, Object> map) {
 		String encodedPwd = dao.loginCheck((String)map.get("id"));
@@ -34,19 +31,17 @@ public class MemberService implements IMemberService{
 	}
 
 	@Override
-	public void insertMember(MemberDTO dto) {
+	public void insertMember(MemberVO vo) {
 		//비밀번호 필드값만 추출해서 암호화
-		String encodedPwd = pwdEncoder.encode(dto.getMemPwd());
-		dto.setMemPwd(encodedPwd);
+		String encodedPwd = pwdEncoder.encode(vo.getMemPwd());
+		vo.setMemPwd(encodedPwd);
 		
-		dao.insertMember(dto);	//암호화된 비밀번호가 저장됨
+		dao.insertMember(vo);
 	}
 
 	@Override
 	public String idCheck(String id) {
 		return dao.idCheck(id);
-	}
-	
-	
+	}	
 	
 }
