@@ -60,21 +60,28 @@
 				</tr>
 				<tr>
 					<td colspan="2">
-						<!-- 로그인 하지 않은 경우에는 [로그인] 버튼  -->
-						<c:if test="${empty sessionScope.sid}">
-							<button><a href="<c:url value='/member/loginForm'/>"></a>로그인</button>
-						</c:if>
-						<!-- 로그인 한 경우에는 [장바구니][주문하기] 버튼  -->
-						<c:if test="${not empty sessionScope.sid}">
-							<input type="submit" id="insertCart" value="장바구니"/>
-							<input type="submit" id="insertOrder" value="주문하기"/>		
+						<!-- 로그인 하지 않은 경우에는 [로그인] 버튼  --> <c:if
+							test="${empty sessionScope.sid}">
+							<button type="button"
+								onclick="location.href='<c:url value="/member/loginForm"/>'">
+								로그인
+							</button>
+						</c:if> 
+						
+						<!-- 로그인 한 경우에는 [장바구니][주문하기] 버튼  --> 
+						<c:if
+							test="${not empty sessionScope.sid}">
+							<input type="submit" id="insertCart" value="장바구니" />
+							<input type="submit" id="insertOrder" value="주문하기" />
 						</c:if>
 					</td>
 				</tr>
 			</table>
 		</form>
 
-		<br> <br> <a href="<c:url value='/product/productListCtg/${prd.ctgId}'/>"><button>상품 목록 보기</button></a>
+		<br> <br> <a
+			href="<c:url value='/product/productListCtg/${prd.ctgId}'/>"><button>상품
+				목록 보기</button></a>
 
 		<!--  bottom -->
 		<c:import url="/WEB-INF/views/layout/bottom.jsp" />
