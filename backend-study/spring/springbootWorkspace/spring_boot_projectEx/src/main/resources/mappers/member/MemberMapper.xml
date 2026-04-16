@@ -20,4 +20,24 @@
 		INSERT INTO member(memId, memPwd, memName, memEmail, memHp, memZipcode, memAddress1, memAddress2) 
 		VALUES (#{memId}, #{memPwd}, #{memName}, #{memEmail}, #{memHp}, #{memZipcode}, #{memAddress1}, #{memAddress2})
 	</insert>
+	
+	<select id="getMemberInfo" parameterType="string" resultType="com.spring_boot.projectEx.dto.MemberDTO">
+    	SELECT * FROM member WHERE memId = #{memId}
+	</select>
+	
+	<update id="updateMember" parameterType="com.spring_boot.projectEx.dto.MemberDTO">
+	    UPDATE member
+	    SET memName = #{memName},
+	        memEmail = #{memEmail},
+	        memHp = #{memHp},
+	        memZipcode = #{memZipcode},
+	        memAddress1 = #{memAddress1},
+	        memAddress2 = #{memAddress2}
+	    WHERE memId = #{memId}
+	</update>
+	
+	<delete id="deleteMember" parameterType="string">
+	    DELETE FROM member
+	    WHERE memId = #{memId}
+	</delete>
 </mapper>

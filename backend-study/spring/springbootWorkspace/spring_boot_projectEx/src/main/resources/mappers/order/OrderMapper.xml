@@ -9,5 +9,49 @@
 		FROM member
 		WHERE memId = #{memId}
 	</select>
+	<!-- public void insertOrderInfo(OrderInfoDTO dto) -->
+	<insert id="insertOrderInfo" parameterType="com.spring_boot.projectEx.dto.OrderInfoDTO">
+		INSERT INTO order_info(ordNo, memId, ordReceiver, ordRcvZipcode,
+                                ordRcvAddress1, ordRcvAddress2, ordRcvPhone, 
+                                ordRcvMsg, ordPay)
+		VALUES(#{ordNo}, #{memId}, #{ordReceiver}, #{ordRcvZipcode},
+                       #{ordRcvAddress1}, #{ordRcvAddress2}, #{ordRcvPhone}, 
+                       #{ordRcvMsg},#{ordPay})
+	</insert>
+	<!-- public void insertOrderProduct(HashMap<String, Object> map)
+		 cart 테이블에서 해당 정보 추출 후 order_product 테이블에 저장
+	-->
+	<insert id="insertOrderProduct" parameterType="hashmap">
+		INSERT INTO order_product(ordNo, prdNo, ordQty)
+			SELECT #{ordNo}, prdNo, cartQty
+			FROM cart
+			WHERE memId = #{memId} 
+	</insert>
+	<!-- public void deleteCartAfterOrder(String memId) -->
+	<delete id="deleteCartAfterOrder" parameterType="string">
+		DELETE FROM cart
+		WHERE memId = #{memId}
+	</delete>
 	
+	<!-- public ArrayList<OrderInfoDTO> orderList(String memId) -->
+	<select id="orderList" parameterType="string" resultType="com.spring_boot.projectEx.dto.OrderInfoDTO">
+		SELECT *
+		FROM order_info
+		WHERE memId = #{memId}
+	</select>
+	
+	<!-- 주문 정보 조회 -->
+	<select id="getOrderInfo" parameterType="string" resultType="com.spring_boot.projectEx.dto.OrderInfoDTO">
+	    SELECT *
+	    FROM order_info
+	    WHERE ordNo = #{ordNo}
+	</select>
+	
+	<!-- 주문 상품 목록 조회 -->
+	<select id="getOrderProductList" parameterType="string" resultType="com.spring_boot.projectEx.dto.OrderProductDTO">
+	    SELECT op.ordNo, op.prdNo, op.ordQty, p.prdName, p.prdPrice
+	    FROM order_product op
+	    JOIN product p ON op.prdNo = p.prdNo
+	    WHERE op.ordNo = #{ordNo}
+	</select>
 </mapper>

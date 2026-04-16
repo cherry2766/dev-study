@@ -23,4 +23,32 @@
   	<select id="detailViewProduct" parameterType="string" resultType="com.spring_boot.projectEx.dto.ProductDTO">
   		SELECT * FROM product WHERE prdNo = #{prdNo}
   	</select>
+  	
+  	<insert id="insertProduct" parameterType="com.spring_boot.projectEx.dto.ProductDTO">
+	    INSERT INTO product(prdNo, prdName, prdPrice, prdCompany, prdStock, prdDescript, prdImg, ctgId)
+	    VALUES(#{prdNo}, #{prdName}, #{prdPrice}, #{prdCompany}, #{prdStock}, #{prdDescript}, #{prdImg}, #{ctgId})
+	</insert>
+	
+	<update id="updateProduct" parameterType="com.spring_boot.projectEx.dto.ProductDTO">
+	    UPDATE product
+	    SET prdName = #{prdName},
+	        prdPrice = #{prdPrice},
+	        prdCompany = #{prdCompany},
+	        prdStock = #{prdStock},
+	        prdDescript = #{prdDescript},
+	        prdImg = #{prdImg},
+	        ctgId = #{ctgId}
+	    WHERE prdNo = #{prdNo}
+	</update>
+	
+	<select id="getAllProducts" resultType="com.spring_boot.projectEx.dto.ProductDTO">
+	    SELECT * FROM product
+	    ORDER BY prdNo
+	</select>
+	
+	<delete id="deleteProduct" parameterType="string">
+	    DELETE FROM product
+	    WHERE prdNo = #{prdNo}
+	</delete>
+	
   </mapper>

@@ -19,6 +19,7 @@
 						<a href="<c:url value='/comm/listWrite'/>">회원게시판</a>  
 						<a href="<c:url value='/product/cartList'/>">장바구니</a>
 						<a href="<c:url value='/member/myPage'/>">마이페이지</a>
+						<a href="<c:url value='/product/adminPage'/>">상품관리</a>
 					</c:if>
 					</div>
             	</div>

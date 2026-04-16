@@ -46,7 +46,28 @@ public class MemberService implements IMemberService{
 	public String idCheck(String id) {
 		return dao.idCheck(id);
 	}
+
+	@Override
+	public MemberDTO getMemberInfo(String memId) {
+		return dao.getMemberInfo(memId);
+	}
 	
+	@Override
+	public void updateMember(MemberDTO dto) {
+	    dao.updateMember(dto);
+	}
 	
+	@Override
+	public int deleteMember(String memId, String memPwd) {
+	    // 기존 암호화된 비밀번호 가져오기
+	    String encodedPwd = dao.loginCheck(memId);
+	    
+	    // 비밀번호 일치 확인
+	    if (encodedPwd != null && pwdEncoder.matches(memPwd, encodedPwd)) {
+	        dao.deleteMember(memId);
+	        return 1;   // 성공
+	    }
+	    return 0;       // 실패
+	}
 	
 }

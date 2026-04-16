@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +21,73 @@ public class MemberController {
 
 	@Autowired
 	IMemberService memService;
+	
+	//myPage
+	@GetMapping("/member/myPage")
+	public String myPage() {
+		return "member/myPage";
+	}
+	
+	//본인 정보 확인
+	@GetMapping("/member/myInfo")
+	public String myInfo(HttpSession session, Model model) {
+		String memId = (String)session.getAttribute("sid");
+		MemberDTO dto = memService.getMemberInfo(memId);
+		model.addAttribute("memDto", dto);
+		return "member/myInfo";
+	}
+	
+	//회원정보 수정 폼
+	@GetMapping("/member/editForm")
+	public String editForm(HttpSession session, Model model) {
+		String memId = (String) session.getAttribute("sid");
+		MemberDTO dto = memService.getMemberInfo(memId);
+		
+		String[] hp = dto.getMemHp().split("-");
+	    model.addAttribute("memDto", dto);
+	    model.addAttribute("hp1", hp[0]);
+	    model.addAttribute("hp2", hp[1]);
+	    model.addAttribute("hp3", hp[2]);
+	    
+	    return "member/editForm";
+	}
+	
+	// 회원정보 수정 처리
+	@PostMapping("/member/edit")
+	public String edit(MemberDTO dto,
+	                   @RequestParam String memHp1,
+	                   @RequestParam String memHp2,
+	                   @RequestParam String memHp3,
+	                   HttpSession session) {
+	    String memHp = memHp1 + "-" + memHp2 + "-" + memHp3;
+	    dto.setMemHp(memHp);
+	    dto.setMemId((String) session.getAttribute("sid"));
+	    
+	    memService.updateMember(dto);
+	    return "redirect:/member/myInfo";
+	}
+	
+	// 회원 탈퇴 폼
+	@GetMapping("/member/deleteForm")
+	public String deleteForm() {
+	    return "member/deleteForm";
+	}
+	
+	// 회원 탈퇴 처리
+	@PostMapping("/member/delete")
+	public String delete(@RequestParam String memPwd,
+	                     HttpSession session) {
+	    String memId = (String) session.getAttribute("sid");
+	    
+	    int result = memService.deleteMember(memId, memPwd);
+	    
+	    if (result == 1) {          // 비밀번호 일치 → 탈퇴 성공
+	        session.invalidate();   // 세션 삭제
+	        return "redirect:/";
+	    } else {                    // 비밀번호 불일치
+	        return "redirect:/member/deleteForm?error=true";
+	    }
+	}
 
 	// 로그인 폼
 	@GetMapping("/member/loginForm")

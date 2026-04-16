@@ -11,7 +11,7 @@ public class OrderInfoDTO {
 	private String ordRcvAddress2;
 	private String ordRcvPhone;
 	private String ordRcvMsg;
-	private String prdPay;
+	private String ordPay;
 	
 	
 	public String getOrdNo() {
@@ -68,13 +68,11 @@ public class OrderInfoDTO {
 	public void setOrdRcvMsg(String ordRcvMsg) {
 		this.ordRcvMsg = ordRcvMsg;
 	}
-	public String getPrdPay() {
-		return prdPay;
+	public String getOrdPay() {
+		return ordPay;
 	}
-	public void setPrdPay(String prdPay) {
-		this.prdPay = prdPay;
+	public void setOrdPay(String ordPay) {
+		this.ordPay = ordPay;
 	}
-	
-	
 
 }
