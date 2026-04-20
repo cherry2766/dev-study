@@ -18,7 +18,7 @@
  		}else {
  			$.ajax({
  				type: "post",
- 				url:"/mybatis/product/productSearch1",
+ 				url:"/product/productSearch1",
  				data:formData,
  				success:function(result) {
  					console.log(result);

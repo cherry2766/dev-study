@@ -1,6 +1,7 @@
 package com.spring_boot_jpa_product.project.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,12 @@ public class ProductServiceDataHandle implements IProductServiceDataHandle {
 	
 	@Autowired
 	IProductDAO dao;
+	
+
+	@Override
+	public ArrayList<ProductEntity> productSearch(HashMap<String, String> param) {
+		return dao.productSearch(param);
+	}
 
 	@Override
 	public ArrayList<ProductEntity> listAllProduct() {

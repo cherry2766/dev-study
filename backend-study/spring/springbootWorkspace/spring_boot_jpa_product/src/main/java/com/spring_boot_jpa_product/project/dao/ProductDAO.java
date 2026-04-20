@@ -1,6 +1,7 @@
 package com.spring_boot_jpa_product.project.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,14 @@ import com.spring_boot_jpa_product.project.repository.ProductRepository;
 public class ProductDAO implements IProductDAO {
 	@Autowired
 	ProductRepository prdRepo;
+
+	@Override
+	public ArrayList<ProductEntity> productSearch(HashMap<String, String> param) {
+		// prdRepo의 상품 검색 메소드 호출 - 해시 맵 대신 문자열 파라미터로 전달하는게 효율적
+		String type = param.get("type");
+		String keyword = param.get("keyword");
+		return prdRepo.productSearch(type, keyword);
+	}
 
 	@Override
 	public ArrayList<ProductEntity> listAllProduct() {

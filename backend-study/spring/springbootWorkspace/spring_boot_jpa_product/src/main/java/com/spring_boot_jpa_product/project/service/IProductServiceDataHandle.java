@@ -1,8 +1,10 @@
 package com.spring_boot_jpa_product.project.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Optional;
 
+import com.spring_boot_jpa_product.project.dto.ProductDTO;
 import com.spring_boot_jpa_product.project.entity.ProductEntity;
 
 
@@ -18,4 +20,6 @@ public interface IProductServiceDataHandle {
 	
 	//jpa에서 1개 entity 조회하는 메소드는 반환타입이 Optional<ProductEntity> 로 되어있음
 	//dao나 repo 관련 service에서도 반환타입 맞춰 사용해야 함
+	
+	ArrayList<ProductEntity> productSearch(HashMap<String, String> param); //상품 검색
 }

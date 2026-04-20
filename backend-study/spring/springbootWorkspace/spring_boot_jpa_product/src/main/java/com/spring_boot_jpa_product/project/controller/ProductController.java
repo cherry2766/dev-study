@@ -1,11 +1,14 @@
 package com.spring_boot_jpa_product.project.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -91,6 +94,21 @@ public class ProductController {
 		String res = service.prdNoCheck(prdNo);
 
 		return res;
+	}
+
+	// 상품검색 폼 요청 처리
+	@GetMapping("/product/productSearchForm1")
+	public String productSearchForm1() {
+		return "product/productSearchForm1";
+	}
+
+	// 상품 검색 요청 처리 메소드
+	@ResponseBody
+    @PostMapping("/product/productSearch1")
+    public ArrayList<ProductDTO> productSearch1(@RequestParam HashMap<String, String> param, Model model) {
+        ArrayList<ProductDTO> prdList = service.productSearch(param);
+        //model.addAttribute("prdList",prdList);
+        return prdList; //ArrayList 반환
 	}
 
 }

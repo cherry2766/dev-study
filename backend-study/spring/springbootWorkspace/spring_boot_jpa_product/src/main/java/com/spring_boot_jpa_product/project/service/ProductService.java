@@ -1,14 +1,13 @@
 package com.spring_boot_jpa_product.project.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import com.spring_boot_jpa_product.project.dao.IProductDAO;
 import com.spring_boot_jpa_product.project.dto.ProductDTO;
 import com.spring_boot_jpa_product.project.entity.ProductEntity;
 
@@ -17,6 +16,20 @@ import com.spring_boot_jpa_product.project.entity.ProductEntity;
 public class ProductService implements IProductService {
 	@Autowired
 	IProductServiceDataHandle productServiceDataHandle;
+	
+	
+	@Override
+	public ArrayList<ProductDTO> productSearch(HashMap<String, String> param) {
+		ArrayList<ProductEntity> entityList = productServiceDataHandle.productSearch(param); //entity 반환 받아서
+		ArrayList<ProductDTO> list = new ArrayList<>(); //DTO로 변환 후 반환
+		
+		//entity -> dto
+		for(ProductEntity entity : entityList) {
+			ProductDTO dto = ProductDTO.toDTO(entity);
+			list.add(dto);
+		}
+		return list;
+	}
 
 	@Override
 	public ArrayList<ProductDTO> listAllProduct() {
