@@ -12,10 +12,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.AuthenticationFilter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+//import org.springframework.security.web.authentication.AuthenticationFilter;
+import com.spring_boot_react.project.AuthenticationFilter;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import com.spring_boot_react.project.service.UserDetailsServiceImpl;
 
@@ -36,11 +40,13 @@ public class SecurityConfig {
 
 	// db 사용자 계정을 이용한 스프링 시큐리티 구성 - 사용자 계정 시큐리티에 연결
 	private final UserDetailsServiceImpl userDetailsService;
+	private final AuthenticationFilter authenticationFilter;
 	//private final AuthenticationFilter authenticationFilter;
 	//private final AuthEntryPoint exceptHandler;
 
-	public SecurityConfig(UserDetailsServiceImpl userDetailsService) {
+	public SecurityConfig(UserDetailsServiceImpl userDetailsService, AuthenticationFilter authenticationFilter) {
 		this.userDetailsService = userDetailsService;
+		this.authenticationFilter = authenticationFilter;
 	}
 
 	// db 사용자 설정
@@ -56,7 +62,8 @@ public class SecurityConfig {
 		.authorizeHttpRequests( // /login은 인증 없이 요청가능, 로그인 요청 제외 나머지 모든 요청은 인증을 요구하게 됨
 				(authorizeHttpRequests)-> authorizeHttpRequests.requestMatchers(HttpMethod.POST, "/login")
 				.permitAll().anyRequest().authenticated()
-				); //모든 요청에 대해 /login을 선행할 것 -> 클라이언트가 jwt 토큰이 없으면 로그인을 요구하게됨
+				) //모든 요청에 대해 /login을 선행할 것 -> 클라이언트가 jwt 토큰이 없으면 로그인을 요구하게됨
+		.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
 		return http.build();
 	}
 	
